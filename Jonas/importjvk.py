@@ -18,10 +18,11 @@ Created on Wed Nov 30 10:42:43 2022
 import pandas as pd
 import streamlit as st
 import os 
+import json
 
 
 @st.cache
-def get_data():
+def get_dataOLD():
 
     pd.set_option('display.max_rows', 500)
     pd.set_option('display.max_columns', 500)
@@ -64,6 +65,89 @@ def get_data():
     dictkeyadd(tests_states)
     dictkeyadd(proliferation)
     lrge_df=pd.DataFrame.from_dict(yearcontrdict, orient='index').fillna(0).reset_index(drop=True)
+    # print(lrge_df.head(2))
+    return "Jonas1",lrge_df
+
+
+@st.cache
+def get_data():
+
+    pd.set_option('display.max_rows', 500)
+    pd.set_option('display.max_columns', 500)
+    pd.set_option('display.width', 1000)
+    
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    
+    #data from https://data.worldbank.org/indicator/NY.GDP.MKTP.CD
+    urlcsv=dir_path+"/../Jonas/archive/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_4701247/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_4701247.csv"
+    GDPglob = pd.read_csv(urlcsv, index_col = [0], skipinitialspace=True,header=2)
+    # print(GDPglob.head(2))
+    # print(GDPglob.columns.values)
+    
+    urlcsv=dir_path+"/../Jonas/archive/API_SI.POV.GINI_DS2_en_csv_v2_4701295/API_SI.POV.GINI_DS2_en_csv_v2_4701295.csv"
+    giniglob = pd.read_csv(urlcsv, index_col = [0], skipinitialspace=True,header=2)
+    
+    urlcsv=dir_path+"/../dataset/nuclear_weapons_stockpiles.csv"
+    stockpiles = pd.read_csv(urlcsv, index_col = [0,1], skipinitialspace=True).reset_index()
+    
+    urlcsv=dir_path+"/../dataset/nuclear_weapons_tests_states.csv"
+    tests_states = pd.read_csv(urlcsv, index_col = [0,1], skipinitialspace=True).reset_index()
+    
+    urlcsv=dir_path+"/../dataset/nuclear_weapons_proliferation_total_owid.csv"
+    proliferationTot = pd.read_csv(urlcsv, index_col = [0,1], skipinitialspace=True)
+    
+    urlcsv=dir_path+"/../dataset/nuclear_weapons_proliferation_owid.csv"
+    proliferation = pd.read_csv(urlcsv, index_col = [0,1], skipinitialspace=True).reset_index()
+    
+    GDPglob.rename(columns = {'Country Name':'country_name'}, inplace = True)
+    giniglob.rename(columns = {'Country Name':'country_name'}, inplace = True)
+    yearcontrdict={}
+    def dictkeyadd(frame):
+        yearpos=None
+        countrpos=None
+        cols=list(frame.columns.values)
+        for colind in range(len(cols)):
+            if cols[colind]=="year":
+                yearpos=colind
+            if cols[colind]=="country_name":
+                countrpos=colind
+        for row in frame.to_numpy():
+            retval={str(cols[ind]): row[ind] for ind in range(len(row))}
+            mykey=json.dumps([row[yearpos],row[countrpos]])
+            if mykey in yearcontrdict.keys():
+                yearcontrdict[mykey].update(retval)
+            else:
+                yearcontrdict[mykey]=retval
+              
+    dictkeyadd(stockpiles)
+    dictkeyadd(tests_states)
+    dictkeyadd(proliferation)
+    
+    def dictkeyupdate(frame, handle):
+        mykeys=list(yearcontrdict.keys())
+        # print(mykeys)
+        for key in mykeys:
+            keylist = json.loads(key)
+            try:
+                yearcontrdict[key].update({handle:frame[str(keylist[0])][keylist[1]]})
+                # print("added "+handle+" for: "+key)
+            except:
+                # print(key)
+                # print(keylist)
+                # print(str(keylist[0]))
+                # print(keylist[1])
+                # print(frame)
+                # try:
+                #     print(frame[str(keylist[0])])
+                # except:
+                #     pass
+                pass
+    # print(GDPglob)
+    dictkeyupdate(GDPglob, "GDP")
+    dictkeyupdate(giniglob, "Gini")
+    # lrge_df=pd.DataFrame.from_dict(yearcontrdict, orient='index').fillna(0).reset_index(drop=True)
+    lrge_df=pd.DataFrame.from_dict(yearcontrdict, orient='index').reset_index(drop=True)
+    lrge_df=lrge_df.combine_first(get_dataOLD()[1])
     # print(lrge_df.head(2))
     return "Jonas1",lrge_df
 
