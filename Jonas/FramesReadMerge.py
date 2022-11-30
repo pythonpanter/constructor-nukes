@@ -61,5 +61,43 @@ dictkeyadd(stockpiles)
 dictkeyadd(tests_states)
 dictkeyadd(proliferation)
 lrge_df=pd.DataFrame.from_dict(yearcontrdict, orient='index').fillna(0).reset_index(drop=True)
+print(lrge_df.head(2))
 
+# print("")
+# print("")
+# print("")
+
+# print(*lrge_df.to_numpy())
+# print(lrge_df.head(2))
+# print("")
+# print("")
+# print("")
+# print(yearcontrdict[list(yearcontrdict.keys())[0]])
+
+# quit()
+
+
+# print(stockpiles.head())
+# print(tests_states.head())
+# print(proliferation.head())
+# # lrge_df=pd.concat([stockpiles, tests_states, proliferation], axis=1, keys=["country_name","year"],ignore_index=True)
+# lrge_df=pd.concat([proliferation,tests_states, stockpiles]).reset_index()
+# # lrge_df = lrge_df.reset_index()
+# # lrge_df = lrge_df.unstack("second")
+# # lrge_df = lrge_df.unstack()
+# # lrge_df.columns = lrge_df.columns.droplevel(0)
+
+# print(lrge_df.head(2).to_numpy())
+# print("")
+# print("")
+# print("")
+
+# # print(lrge_df.head(100000).to_numpy()[0])
+# print(*lrge_df.head(100000).to_numpy())
+# print("")
+# print("")
+# print("")
+# print(lrge_df.head(1))
+
+# # print(lrge_df[0])
 
