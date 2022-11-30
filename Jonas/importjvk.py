@@ -21,7 +21,7 @@ import os
 
 
 @st.cache
-def get_data():
+def get_dataOLD():
 
     pd.set_option('display.max_rows', 500)
     pd.set_option('display.max_columns', 500)

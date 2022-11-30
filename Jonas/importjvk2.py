@@ -19,9 +19,9 @@ import pandas as pd
 import streamlit as st
 import os 
 import json
+from importjvk import get_dataOLD
 
-
-# @st.cache
+@st.cache
 def get_data():
 
     pd.set_option('display.max_rows', 500)
@@ -82,7 +82,7 @@ def get_data():
             keylist = json.loads(key)
             try:
                 yearcontrdict[key].update({handle:frame[str(keylist[0])][keylist[1]]})
-                print("added "+handle+" for: "+key)
+                # print("added "+handle+" for: "+key)
             except:
                 # print(key)
                 # print(keylist)
@@ -99,12 +99,14 @@ def get_data():
     dictkeyupdate(giniglob, "Gini")
     # lrge_df=pd.DataFrame.from_dict(yearcontrdict, orient='index').fillna(0).reset_index(drop=True)
     lrge_df=pd.DataFrame.from_dict(yearcontrdict, orient='index').reset_index(drop=True)
-    print(lrge_df.head(2))
+    lrge_df=lrge_df.combine_first(get_dataOLD()[1])
+    # print(lrge_df.head(2))
     return "Jonas1",lrge_df
 
 # get_data()
-print(get_data()[1].head(2).to_numpy())
-# print(*get_data()[1].head(2).to_numpy())
+# print(get_data()[1].head(2).to_numpy())
+print(*get_data()[1].to_numpy())
+print(get_data()[1].head(2))
 # print("")
 # print("")
 # print("")
