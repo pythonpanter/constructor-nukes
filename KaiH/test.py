@@ -5,7 +5,7 @@ for d in dirs:
     sys.path.insert(0, f'../{d}')
 
 import importjvk as jvk
-#import importak as ak              #Alexej not yet compatible
+import importak as ak              #Alexej not yet compatible
 
 
 
@@ -31,10 +31,15 @@ print(type(lj[0]))
 print(type(lj[1]))
 
 
+ak=ak.get_data()
+
+print(type(ak[0]))
+print(type(ak[1]))
 
 print('start')
 st.title('This is a title ...')
 il.test()
+
 
 
 k,df=il.get_data()
