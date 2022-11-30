@@ -29,4 +29,6 @@ print('* df_states = \n', df_states)
 
 ##### Merge dataframes
 df_merged = pd.merge(pd.merge(df_proliferation,df_stockpiles,on='country_name'),df_states,on='country_name')
-print('* df_merged = \n', df_merged)
+df_merged_2 = pd.merge(pd.merge(df_proliferation,df_stockpiles,on=['country_name', 'year']),df_states,on=['country_name', 'year'])
+print('* df_merged = \n', df_merged.head(60))
+print('* df_merged_2 = \n', df_merged_2.head(60))
