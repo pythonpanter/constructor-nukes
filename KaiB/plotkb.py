@@ -32,7 +32,7 @@ def cplot(df):
     fig = go.Figure(data=go.Choropleth(
         locations=df['Code'],
         z=df['Percentage'],
-        colorscale='Hot',
+        colorscale='Jet',
 
         text=df['Country'],  # hover text
         marker_line_color='white',  # line markers between states
