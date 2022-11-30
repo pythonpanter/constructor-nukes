@@ -5,19 +5,20 @@ Created on Wed Nov 30 10:42:43 2022
 
 @author: jvk
 """
+# import matplotlib.pyplot as plt
+# import plotly.express as px
+# import plotly.graph_objects as go
+# from urllib.request import urlopen
+# import json
+# from copy import deepcopy
+# from plotly.express import choropleth
+# import plotly.subplots
+# import time
 
-import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
-import plotly.express as px
-import plotly.graph_objects as go
-from urllib.request import urlopen
-import json
-from copy import deepcopy
+import streamlit as st
 import os 
-from plotly.express import choropleth
-import plotly.subplots
-import time
+
 
 @st.cache
 def get_data():
