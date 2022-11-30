@@ -14,10 +14,17 @@ from copy import deepcopy
 print('start')
 st.title('This is a title ...')
 il.test()
-df=pd.read_csv('share-of-individuals-using-the-internet.csv')
-df.rename(columns={'Individuals using the Internet (% of population)':'Percentage','Entity':'Country'}, inplace=True)
 
-fig=cp.cplot(df)
+k,df=il.get_data()
+
+
+print(k)
+print(df.head())
+
+(key,fig,info_dict)=cp.cplot(df)
+print(key)
+print(info_dict)
+
 
 st.plotly_chart(fig)
 st.plotly_chart(fig)

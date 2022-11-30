@@ -27,4 +27,8 @@ def cplot(df):
                     projection_rotation=dict(lon=10, lat=45, roll=0),
                     )
     #fig.update_traces(unselected_marker_opacity=0.5, selector=dict(type='choropleth'))
-    return fig
+    title='Im a title'
+    description = 'Example description'
+    key='inetusage'
+    info_dict=dict(title=title, description=description)
+    return (key,fig,info_dict)
