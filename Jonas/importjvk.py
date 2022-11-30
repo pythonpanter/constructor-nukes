@@ -19,7 +19,7 @@ from plotly.express import choropleth
 import plotly.subplots
 import time
 
-
+@st.cache
 def get_data():
 
     pd.set_option('display.max_rows', 500)
