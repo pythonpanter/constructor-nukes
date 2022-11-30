@@ -26,19 +26,16 @@ def get_data():
     urlcsv=dir_path+"/../dataset/nuclear_weapons_tests_states.csv"
     tests_states = pd.read_csv(urlcsv, index_col = [0,1], skipinitialspace=True).reset_index()
     
-    urlcsv=dir_path+"/../dataset/nuclear_weapons_proliferation_total_owid.csv"
-    proliferationTot = pd.read_csv(urlcsv, index_col = [0,1], skipinitialspace=True)
-    
     urlcsv=dir_path+"/../dataset/nuclear_weapons_proliferation_owid.csv"
     proliferation = pd.read_csv(urlcsv, index_col = [0,1], skipinitialspace=True).reset_index()
 
 
     ##### Read in the data
-    df_proliferation = pd.read_csv('/Users/alexejkhalilzada/Dokumente/Data_Science/SIT_Learning/GroupChallenge/constructor-nukes/dataset/nuclear_weapons_proliferation_owid.csv')
+    df_proliferation = pd.read_csv(proliferation)
     # nuclear_weapons_stockpiles.csv
-    df_stockpiles = pd.read_csv('/Users/alexejkhalilzada/Dokumente/Data_Science/SIT_Learning/GroupChallenge/constructor-nukes/dataset/nuclear_weapons_stockpiles.csv')
+    df_stockpiles = pd.read_csv(stockpiles)
     # nuclear_weapons_tests_states.csv
-    df_states = pd.read_csv('/Users/alexejkhalilzada/Dokumente/Data_Science/SIT_Learning/GroupChallenge/constructor-nukes/dataset/nuclear_weapons_tests_states.csv')
+    df_states = pd.read_csv(proliferation)
 
     ##### Merge dataframes
     df_merged = pd.merge(pd.merge(df_proliferation,df_stockpiles,on=['country_name', 'year']),df_states,on=['country_name', 'year'])
