@@ -32,10 +32,6 @@ def get_data():
     df_proliferation = pd.read_csv(
         urlcsv, index_col=[0, 1], skipinitialspace=True).reset_index()
 
-    print(stockpiles)
-    print(tests_states)
-    print(proliferation)
-
     """ ##### Read in the data
     df_proliferation = pd.read_csv(proliferation)
     # nuclear_weapons_stockpiles.csv
