@@ -29,16 +29,16 @@ def get_data():
     
     dir_path = os.path.dirname(os.path.realpath(__file__))
     
-    urlcsv=dir_path+"/archive/nuclear_weapons_stockpiles.csv"
+    urlcsv=dir_path+"/../dataset/nuclear_weapons_stockpiles.csv"
     stockpiles = pd.read_csv(urlcsv, index_col = [0,1], skipinitialspace=True).reset_index()
     
-    urlcsv=dir_path+"/archive/nuclear_weapons_tests_states.csv"
+    urlcsv=dir_path+"/../dataset/nuclear_weapons_tests_states.csv"
     tests_states = pd.read_csv(urlcsv, index_col = [0,1], skipinitialspace=True).reset_index()
     
-    urlcsv=dir_path+"/archive/nuclear_weapons_proliferation_total_owid.csv"
+    urlcsv=dir_path+"/../dataset/nuclear_weapons_proliferation_total_owid.csv"
     proliferationTot = pd.read_csv(urlcsv, index_col = [0,1], skipinitialspace=True)
     
-    urlcsv=dir_path+"/archive/nuclear_weapons_proliferation_owid.csv"
+    urlcsv=dir_path+"/../dataset/nuclear_weapons_proliferation_owid.csv"
     proliferation = pd.read_csv(urlcsv, index_col = [0,1], skipinitialspace=True).reset_index()
     
     yearcontrdict={}
@@ -65,6 +65,8 @@ def get_data():
     lrge_df=pd.DataFrame.from_dict(yearcontrdict, orient='index').fillna(0).reset_index(drop=True)
     # print(lrge_df.head(2))
     return "Jonas1",lrge_df
+
+print(get_data()[1].head(2))
 # print("")
 # print("")
 # print("")
