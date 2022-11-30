@@ -30,5 +30,6 @@ def cplot(df):
     title='Im a title'
     description = 'Example description'
     key='inetusage'
-    info_dict=dict(title=title, description=description)
+    lib = 'plotly_go'
+    info_dict=dict(title=title, description=description, lib=lib)
     return (key,fig,info_dict)
