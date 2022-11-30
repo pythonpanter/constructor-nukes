@@ -58,4 +58,8 @@ def cplot(df):
     info_dict=dict(title=title, description=description, lib=lib)
     return (key,fig,info_dict)
 
-cplot(df_rec)
+plot1 = cplot(df_rec)
+plots = []
+plots.append(plot1)
+def get_plots():
+    return plots
