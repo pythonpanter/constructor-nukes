@@ -13,10 +13,10 @@ for d in dirs:
 import streamlit as st
 
 # SET USR
-usr= {'jvk':0,
-      'ak':0,
+usr= {'jvk':1,
+      'ak':1,
       'kb':1,
-      'kh':0}
+      'kh':1}
 
 # STREAMLIT SIDEBAR
 st.sidebar.image(f'{kaipath}nuke.jpg')
