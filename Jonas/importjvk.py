@@ -21,7 +21,7 @@ import os
 import json
 
 
-# @st.cache
+@st.cache
 def get_dataOLD():
 
     pd.set_option('display.max_rows', 500)
@@ -69,7 +69,7 @@ def get_dataOLD():
     return "Jonas1",lrge_df
 
 
-# @st.cache
+@st.cache
 def get_data():
 
     pd.set_option('display.max_rows', 500)

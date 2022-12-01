@@ -13,11 +13,11 @@ import json
 # from scipy.stats import shapiro
 # from importjvk import get_data
 import numpy as np
-import importjvk as jvk
+import importjvk as ijvk
 from pandas.api.types import is_numeric_dtype
 
-# @st.cache
-def eval_frame(datahandle="Jonas1", df=jvk.get_data()[1]):
+@st.cache
+def eval_frame(datahandle="Jonas1", df=ijvk.get_data()[1]):
     # quit()
     # df["nuclear"]=False
     # for country in list(df["country_name"].unique()):

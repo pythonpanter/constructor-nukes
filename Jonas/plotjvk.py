@@ -6,12 +6,16 @@ Created on Thu Dec  1 14:26:00 2022
 @author: jvk
 """
 
-import pandas as pd
-import plotly.express as px
-import json
-import plotly.graph_objects as go
-import evaljvk as jvk
-import importjvk as jvk
+# import pandas as pd
+# import plotly.express as px
+# import json
+# import plotly.graph_objects as go
+# import evaljvk as ejvk
+# import importjvk as ijvk
 
 
-myEval=jvk.eval_frame()
+# myEval=ejvk.eval_frame()
+
+import evaljvk as ejvk
+
+data= ejvk.eval_frame()
