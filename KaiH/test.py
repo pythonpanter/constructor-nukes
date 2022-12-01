@@ -17,7 +17,8 @@ dataframes.append(ak.get_data())
 n,df=dataframes[0]
 import pandas as pd
 print(df.head())
-
+import streamlit as st
+st.title('Nukes')
 import plotkb as pkb
 
 plots=pkb.get_plots()
@@ -42,5 +43,4 @@ import plotly.graph_objects as go
 from urllib.request import urlopen
 import json
 from copy import deepcopy
-import streamlit as st
-st.title('Nukes')
+
