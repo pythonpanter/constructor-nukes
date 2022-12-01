@@ -25,12 +25,15 @@ def get_data():
     path_to_proliferation = "/../dataset/nuclear_weapons_proliferation_owid.csv"
     
     read_data(path_to_stockpiles)
+    print(csv_data)
     df_stockpiles = csv_data
     
     read_data(path_to_tests)
+    print(csv_data)
     df_tests = csv_data
     
     read_data(path_to_proliferation)
+    print(csv_data)
     df_proliferation = csv_data
     
     # urlcsv = dir_path+"/../dataset/nuclear_weapons_stockpiles.csv"
