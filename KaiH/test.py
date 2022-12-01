@@ -1,8 +1,16 @@
 import sys
+if sys.platform=='win32':
+    dots='..'
+else:
+    dots='.'
+
 usr=['jvk','ak','kb','kh']
 dirs=['Jonas','Alexej','KaiB']
+
 for d in dirs:
-    sys.path.insert(0, f'../{d}')
+    sys.path.insert(0, f'{dots}/{d}')
+
+
 
 import importjvk as jvk
 import importak as ak
