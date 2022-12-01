@@ -32,8 +32,9 @@ usr= {'jvk':0,
 
 # SET STREAMLIT BASE
 import streamlit as st
-st.sidebar.title('NU*ES')
+
 st.sidebar.image(f'{kaipath}nuke.jpg')
+st.sidebar.title('NU*ES')
 slide = st.sidebar.radio('',['Intro','Jonas Story','Alexejs  Story','Kais  Story','Architecture'])
 st.header(slide)
 if sys.platform=='win32':
