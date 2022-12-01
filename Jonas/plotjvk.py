@@ -25,7 +25,7 @@ import plotly.express as px
 import streamlit as st
 import numpy as np
 
-@st.cache
+# @st.cache
 def get_plots(string=ejvk.eval_frame()[0],df=ejvk.eval_frame()[1],info=ejvk.eval_frame()[2]):
     # df[['year']]=df[['year']].astype('float64', raise_on_error = False)
     empty=df.head(0)
