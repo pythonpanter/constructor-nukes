@@ -83,8 +83,8 @@ def get_plots():
                     projection_rotation=dict(lon=10, lat=45, roll=0),
                     )
     #fig.update_traces(unselected_marker_opacity=0.5, selector=dict(type='choropleth'))
-    title='Nuclear armament'
-    description = 'National stockpile of nuclear Weapons in 2015'
+    title='National stockpile of nuclear Weapons'
+    description = 'Year 2015'
     key='stockpilek'
     lib = 'plotly_go'
     info_dict=dict(title=title, description=description, lib=lib)

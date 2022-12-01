@@ -22,7 +22,7 @@ s=dict(Intro='Intro',
             jonas='Jonas Story',
             alexej='Alexejs  Story',
             kaib='Kai Bs Story',
-            kaih='Kai Hs Story',
+            kaih='Nuclear armament in recent years',
             sum='Summary',
             Architecture='.')
 
