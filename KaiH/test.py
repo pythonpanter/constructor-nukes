@@ -15,6 +15,8 @@ for d in dirs:
 import streamlit as st
 if sys.platform=='win32':
     st.sidebar.title('***LOCAL INSTANCE***')
+else:
+    st.sidebar.title('nu*es')
 
 # IMPORT ADDITIONAL PACKAGES
 from urllib.request import urlopen
@@ -34,7 +36,7 @@ usr= {'jvk':0,
       'kb':1,
       'kh':0}
 
-slide = st.sidebar.radio('Slide',['nu*es','Jonas Story','Alexejs  Story','Kais  Story','Architecture'])
+slide = st.sidebar.radio('Slide',['Intro','Jonas Story','Alexejs  Story','Kais  Story','Architecture'])
 st.header(slide)
 
 def import_plots(plots):
@@ -68,6 +70,6 @@ elif slide == ('Architecture'):
     st.image(f'{kaipath}architecture.jpg')
     st.caption(
         'Architecture of underlying framework (WIP)')
-elif slide == ('nu*es'):
+elif slide == ('Intro'):
     st.image(f'{kaipath}bikinibomb.jpg')
     st.caption('Showgirl Joy Healy smiles as she straddles a U.S. Air Force missile, wearing a bikini costume, at an American Federation of Labor Union show, in Los Angeles, California, in 1945  (Photo credit: Hulton Archive/Getty Images)')
