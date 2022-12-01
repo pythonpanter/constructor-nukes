@@ -13,7 +13,7 @@ for d in dirs:
 import streamlit as st
 
 # SET USR
-usr= {'jvk':1,
+usr= {'jvk':0,
       'ak':1,
       'kb':1,
       'kh':1}
@@ -22,12 +22,13 @@ s=dict(Intro='Intro',
             jonas='Jonas Story',
             alexej='Alexejs  Story',
             kaib='Kai Bs Story',
+            kaih='Kai Hs Story',
             Architecture='Architecture')
 
 # STREAMLIT SIDEBAR
 st.sidebar.image(f'{kaipath}nuke.jpg')
 st.sidebar.title('NU*ES')
-slide = st.sidebar.radio('',[s['Intro'],s['jonas'],s['alexej'],s['kaib'],s['Architecture']])
+slide = st.sidebar.radio('',[s['Intro'],s['jonas'],s['alexej'],s['kaib'],s['kaih'],s['Architecture']])
 st.header(slide)
 if sys.platform=='win32':
     st.sidebar.title('***LOCAL INSTANCE***')
@@ -59,6 +60,11 @@ elif slide == (s['jonas']):
     if usr['jvk']:
         import plotjvk as pjvk
         plots=pjvk.get_plots()
+        import_plots(plots)
+elif slide == (s['kaih']):
+    if usr['kh']:
+        import plotkh as pkh
+        plots=pkh.get_plots()
         import_plots(plots)
 elif slide == (s['Architecture']):
     st.image(f'{kaipath}architecture.jpg')
