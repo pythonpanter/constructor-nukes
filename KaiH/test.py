@@ -15,7 +15,7 @@ for d in dirs:
 import streamlit as st
 if sys.platform=='win32':
     st.title('***LOCAL INSTANCE***')
-st.title('Nuke.N.')
+st.title('Nuke. N.')
 st.image(f'{kaipath}bikinibomb.jpg')
 
 # IMPORT ADDITIONAL PACKAGES
@@ -34,38 +34,37 @@ usr= {'jvk':0,
       'kb':1,
       'kh':0}
 
-def import_plots():
-    (key, fig, info_dict) = plots[0]
+def import_plots(plots):
+    for i in range (0,len(plots)):
+        st.header(plots[i][2]['title'])
+        st.subheader(plots[i][2]['description'])
+        if (plots[i][2]['lib']=='plotly_go') or (plots[i][2]['lib']=='plotly_chart'):
+            st.plotly_chart(plots[i][1])
 
 if usr['kb']:
     import plotkb as pkb
     plots=pkb.get_plots()
     st.header('Kai B Plots')
-
-    st.header(plots[0][2]['title'])
-    st.subheader(plots[0][2]['description'])
-    st.plotly_chart(plots[0][1])
+    import_plots(plots)
 
 if usr['ak']:
     import plotak as pak
     plots=pak.get_plots()
     st.header('Alexej Plots')
-
-    st.plotly_chart(plots[0][1])
+    import_plots(plots)
 
 if usr['jvk']:
     import plotjvk as pjvk
     plots=pjvk.get_plots()
     st.header('Jonas Plots')
-
-    st.plotly_chart(plots[0][1])
+    import_plots(plots)
 
 if usr['kh']:
     import plotkh as pkh
     plots=pkh.get_plots()
     st.header('Kai H Plots')
+    import_plots(plots)
 
-    st.plotly_chart(plots[0][1])
 
 
 
