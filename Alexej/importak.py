@@ -46,7 +46,7 @@ def get_data():
         # Return the merged dataframe
     return "@Alexej_Khalilzada", df_merged
 
-##### Main #####
+##### Main part for testing #####
 
 get_data() # let's grab the available data
 
