@@ -4,7 +4,7 @@ if sys.platform=='win32':
     dots='..'
 else:
     dots='.'
-usr=['jvk','ak','kb','kh']
+
 dirs=['Jonas','Alexej','KaiB']
 for d in dirs:
     sys.path.insert(0, f'{dots}/{d}')
@@ -13,8 +13,8 @@ for d in dirs:
 import streamlit as st
 if sys.platform=='win32':
     st.title('***LOCAL INSTANCE***')
-st.title('Nukes')
-
+st.title('Nuke.N.')
+st.image('bikinibomb.jpg')
 
 # IMPORT ADDITIONAL PACKAGES
 from urllib.request import urlopen
@@ -26,6 +26,11 @@ import pandas as pd
 import json
 
 # IMPORT PLOTS
+
+usr= {'jvk':0,
+      'ak':0,
+      'kb':0,
+      'kh':0}
 
 import plotkb as pkb
 
