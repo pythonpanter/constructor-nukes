@@ -11,12 +11,8 @@ dirs=['Jonas','Alexej','KaiB']
 for d in dirs:
     sys.path.insert(0, f'{dots}/{d}')
 
-# SET STREAMLIT BASE
-import streamlit as st
-if sys.platform=='win32':
-    st.sidebar.title('***LOCAL INSTANCE***')
-else:
-    st.sidebar.title('nu*es')
+
+
 
 # IMPORT ADDITIONAL PACKAGES
 from urllib.request import urlopen
@@ -27,18 +23,20 @@ from copy import deepcopy
 import pandas as pd
 import json
 
-# IMPORT PLOTS
-
-
-
+# SET USR
 usr= {'jvk':0,
       'ak':0,
       'kb':1,
       'kh':0}
 
+
+# SET STREAMLIT BASE
+import streamlit as st
+st.sidebar.title('NU*ES')
+st.sidebar.image(f'{kaipath}nuke.jpg')
 slide = st.sidebar.radio('Slide',['Intro','Jonas Story','Alexejs  Story','Kais  Story','Architecture'])
 st.header(slide)
-
+st.sidebar.title('***LOCAL INSTANCE***')
 def import_plots(plots):
     for i in range (0,len(plots)):
         st.header(plots[i][2]['title'])
@@ -46,7 +44,7 @@ def import_plots(plots):
         if (plots[i][2]['lib']=='plotly_go') or (plots[i][2]['lib']=='plotly_chart'):
             st.plotly_chart(plots[i][1])
 
-
+# IMPORT PLOTS
 if slide==('kb'):
     if usr['kb']:
         import plotkb as pkb
