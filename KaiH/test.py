@@ -29,7 +29,7 @@ import plotly.graph_objects as go
 from urllib.request import urlopen
 import json
 from copy import deepcopy
-
+"""
 import plotkb as pkb
 
 plots=pkb.get_plots()
@@ -37,7 +37,7 @@ plots=pkb.get_plots()
 st.title('Kai B Plot')
 st.plotly_chart(fig)
 #(key,fig,info_dict)=pkb.cplot(df)
-
+"""
 
 lj=jvk.get_data()
 
