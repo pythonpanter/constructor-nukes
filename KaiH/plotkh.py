@@ -70,6 +70,8 @@ def splot(cyear):
     fig = go.Figure(data=go.Choropleth(
         locations=df['FIFA'],
         z=df['nuclear_weapons_stockpile'],
+        zmin=0,
+        zmax=35000,
         colorscale='Bluered',
 
         text=df['country_name'],  # hover text
