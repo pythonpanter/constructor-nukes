@@ -17,7 +17,7 @@ import importjvk as jvk
 from pandas.api.types import is_numeric_dtype
 
 @st.cache
-def eval_frame(datahandle, df):
+def eval_frame(datahandle="Jonas1", df=jvk.get_data):
     # quit()
     df["nuclear"]=False
     for country in list(df["country_name"].unique()):
