@@ -64,7 +64,7 @@ def get_plots():
     fig = go.Figure(data=go.Choropleth(
         locations=df['FIFA'],
         z=df['nuclear_weapons_stockpile'],
-        colorscale='Reds',
+        colorscale='Bluered',
 
         text=df['country_name'],  # hover text
         marker_line_color='white',  # line markers between states
