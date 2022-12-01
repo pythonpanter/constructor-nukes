@@ -24,8 +24,8 @@ dfraw=data[1]
 
 
 #df=dfraw
-
-df = dfraw[dfraw.year==2015]
+cyear=2022
+df = dfraw[dfraw.year==cyear]
 
 codepath=f"{kaipath}country_codes.csv"
 print(codepath)
@@ -81,10 +81,11 @@ def get_plots():
     fig.update_geos(showlakes=False,
                     projection_type="orthographic",
                     projection_rotation=dict(lon=10, lat=45, roll=0),
+                    showland=True, landcolor="#222222",
                     )
     #fig.update_traces(unselected_marker_opacity=0.5, selector=dict(type='choropleth'))
     title='National stockpile of nuclear Weapons'
-    description = 'Year 2015'
+    description = f'Year {str(cyear)}'
     key='stockpilek'
     lib = 'plotly_go'
     info_dict=dict(title=title, description=description, lib=lib)
