@@ -17,7 +17,7 @@ import numpy as np
 import importjvk as ijvk
 from pandas.api.types import is_numeric_dtype
 
-# @st.cache
+@st.cache
 def eval_frame(datahandle="Jonas1", df=ijvk.get_data()[1]):
     # quit()
     # df["nuclear"]=False
@@ -38,7 +38,8 @@ def eval_frame(datahandle="Jonas1", df=ijvk.get_data()[1]):
             # print(isnumeric)
             if isnumeric[colind]:
                 diff=locdf[cols[colind]].diff()
-                df[cols[colind]+"_diff"]=diff
+                if "_diff" not in cols[colind]:
+                    df[cols[colind]+"_diff"]=diff
     cols2=list(df.columns.values)
     isnumeric2=np.zeros(len(cols2))
     for colind in range(len(cols)):
@@ -66,7 +67,7 @@ def eval_frame(datahandle="Jonas1", df=ijvk.get_data()[1]):
         "key":'None',
         "lib" : 'None'}
 
-    print(list(df.columns.values))
+    # print(list(df.columns.values))
     return "eval JvK", df, dummydict
 # eval_frame()
 # evalframe=eval_frame(*jvk.get_data())[1]
