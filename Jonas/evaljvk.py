@@ -10,13 +10,14 @@ import pandas as pd
 import streamlit as st
 import os
 import json
+import importlib.util
 # from scipy.stats import shapiro
 # from importjvk import get_data
 import numpy as np
 import importjvk as ijvk
 from pandas.api.types import is_numeric_dtype
 
-@st.cache
+# @st.cache
 def eval_frame(datahandle="Jonas1", df=ijvk.get_data()[1]):
     # quit()
     # df["nuclear"]=False
