@@ -1,8 +1,8 @@
 import sys
-#if sys.platform=='win32':
-dots='..'
-#else:
-#    dots='.'
+if sys.platform=='win32':
+    dots='..'
+else:
+    dots='.'
 
 usr=['jvk','ak','kb','kh']
 dirs=['Jonas','Alexej','KaiB']
