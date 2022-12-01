@@ -12,7 +12,7 @@ import streamlit as st
 
 
 @st.cache
-def get_data():
+def get_data:
 
     pd.set_option('display.max_rows', 500)
     pd.set_option('display.max_columns', 500)
@@ -81,4 +81,3 @@ def check_normal_distribution(data):
 # check_normal_distribution(sunny_days_san_francisco)
 # check_normal_distribution(sunny_day_boston)
 
-print(len(df_m))
