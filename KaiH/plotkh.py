@@ -16,7 +16,7 @@ import plotly.graph_objects as go
 
 #import evaljvk as ejvk
 import importjvk as ijvk
-#@st.cache
+@st.cache
 data= ijvk.get_dataOLD()
 df=data[1]
 #print(data[1].head())
@@ -25,7 +25,7 @@ dfraw=data[1]
 
 
 codepath=f"{kaipath}country_codes.csv"
-#@st.cache
+@st.cache
 dfcodes=pd.read_csv(codepath)
 #df=dfraw
 
