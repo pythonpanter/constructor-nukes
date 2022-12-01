@@ -36,7 +36,8 @@ st.sidebar.title('NU*ES')
 st.sidebar.image(f'{kaipath}nuke.jpg')
 slide = st.sidebar.radio('Slide',['Intro','Jonas Story','Alexejs  Story','Kais  Story','Architecture'])
 st.header(slide)
-st.sidebar.title('***LOCAL INSTANCE***')
+if sys.platform=='win32':
+    st.sidebar.title('***LOCAL INSTANCE***')
 def import_plots(plots):
     for i in range (0,len(plots)):
         st.header(plots[i][2]['title'])
