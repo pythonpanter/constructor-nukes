@@ -19,6 +19,14 @@ import pandas as pd
 print(df.head())
 
 
+import plotkb as pkb
+
+plots=pkb.get_plots()
+(key,fig,info_dict)=plots[0]
+st.title('Kai B Plot')
+st.plotly_chart(fig)
+
+
 
 
 
