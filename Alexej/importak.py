@@ -118,13 +118,12 @@ for column in merged_df:
 for element in list_of_columns:
     print(f'* Element in list "list_of_columns" is = ', element)
     print('* list_of_columns = \n', list_of_columns)
-    print(list_of_columns[0])
     alpha = 0.05 # p value
             
     print(f'* Checking normal distribution for column: {element}')
     check_normal_distribution(merged_df[element])
     #print(check_normal_distribution(merged_df[element]))
-    print('\n\n')
+    print('\n|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n')
         
     # check_variance_homogeneity(sunny_days_san_francisco, sunny_day_boston) # Levene's test
 
