@@ -47,7 +47,7 @@ def import_plots(plots):
             st.plotly_chart(plots[i][1])
 
 # IMPORT PLOTS
-if slide==('Kais  Story'):
+if slide==('Kai Bs  Story'):
     if usr['kb']:
         import plotkb as pkb
         plots=pkb.get_plots()
