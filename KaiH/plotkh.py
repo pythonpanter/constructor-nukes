@@ -25,7 +25,7 @@ dfraw=data[1]
 
 
 codepath=f"{kaipath}country_codes.csv"
-@st.cache
+
 dfcodes=pd.read_csv(codepath)
 #df=dfraw
 
