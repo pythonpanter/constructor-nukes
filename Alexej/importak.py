@@ -67,8 +67,12 @@ def check_normal_distribution(data):
     print("p value:%.4f" % p_value_normality)
     if p_value_normality <0.05:
         print("Reject null hypothesis >> The data is not normally distributed")
+        result = "Reject null hypothesis >> The data is not normally distributed"
+        return result
     else:
-        print("Fail to reject null hypothesis >> The data is normally distributed")    
+        print("Fail to reject null hypothesis >> The data is normally distributed")
+        result = "Fail to reject null hypothesis >> The data is normally distributed"
+        return result
     
 @st.cache
 ##### Function
@@ -114,33 +118,28 @@ for column in merged_df:
         print('* 2_list_of_columns = \n', list_of_columns)
     
     print('* 3_list_of_columns = \n', list_of_columns)
-    
-    counter = 0
-    print(len(list_of_columns))
-    print(list_of_columns[1])
-"""     while (counter <= len(list_of_columns)):
-        print('* Counter = ', counter)
-        print('* Element on position {counter} is = ', list_of_columns[counter])
-        counter += 1 """
         
-"""     while ignore_flag: # column is NOT 'country_name'
-        alpha = 0.05 # p value
-                
-        print(f'* Checking normal distribution for column: {column}')
-        
-        check_normal_distribution(merged_df[column])
+for element in list_of_columns:
+    print(f'* Element in list "list_of_columns" is = ', element)
+    print('* 4_list_of_columns = \n', list_of_columns)
+    print(list_of_columns[0])
+    alpha = 0.05 # p value
             
-        # check_variance_homogeneity(sunny_days_san_francisco, sunny_day_boston) # Levene's test
+    print(f'* Checking normal distribution for column: {element}')
+    check_normal_distribution(merged_df[element])
+    print(check_normal_distribution(merged_df[element]))
+    print('\n\n')
+        
+    # check_variance_homogeneity(sunny_days_san_francisco, sunny_day_boston) # Levene's test
 
-        ##### Since assumptions are satisfied, we can perform the parametric version of the test for 2 groups
+    ##### Since assumptions are satisfied, we can perform the parametric version of the test for 2 groups
 
-        ##### Calculate t-score and test the hypothesis with alpha=0.05 Assume that all variables are normally distributed. Do not make any assumptions about the variance.
-        #
-        # ttest,p_value = stats.ttest_ind(sunny_days_san_francisco,sunny_day_boston)
-        print("p value:%.8f" % p_value)
-        print("since the hypothesis is one sided >> use p_value/2 >> p_value_one_sided:%.4f" %(p_value/2))
-        if p_value/2 <0.05:
-            print("\nDo: --->  Reject null hypothesis")
-        else:
-            print("\nDo: ---> Fail to reject null hypothesis")
- """
+    ##### Calculate t-score and test the hypothesis with alpha=0.05 Assume that all variables are normally distributed. Do not make any assumptions about the variance.
+    #
+    # ttest,p_value = stats.ttest_ind(sunny_days_san_francisco,sunny_day_boston)
+    """ print("p value:%.8f" % p_value)
+    print("since the hypothesis is one sided >> use p_value/2 >> p_value_one_sided:%.4f" %(p_value/2))
+    if p_value/2 <0.05:
+        print("\nDo: --->  Reject null hypothesis")
+    else:
+        print("\nDo: ---> Fail to reject null hypothesis") """
