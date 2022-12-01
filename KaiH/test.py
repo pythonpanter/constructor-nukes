@@ -13,7 +13,7 @@ for d in dirs:
 import streamlit as st
 
 # SET USR
-usr= {'jvk':0,
+usr= {'jvk':1,
       'ak':1,
       'kb':1,
       'kh':1}

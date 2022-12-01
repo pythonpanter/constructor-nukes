@@ -16,20 +16,26 @@ import plotly.graph_objects as go
 
 #import evaljvk as ejvk
 import importjvk as ijvk
+@st.cache
 data= ijvk.get_dataOLD()
 df=data[1]
 #print(data[1].head())
 #data2=ejvk.eval_frame(datahandle="Jonas1", df=ijvk.get_dataOLD()[1])
 dfraw=data[1]
 
-
+print(codepath)
+codepath=f"{kaipath}country_codes.csv"
+@st.cache
+dfcodes=pd.read_csv(codepath)
 #df=dfraw
-cyear=2022
+
+
+def splot(cyear)
 df = dfraw[dfraw.year==cyear]
 
-codepath=f"{kaipath}country_codes.csv"
-print(codepath)
-dfcodes=pd.read_csv(codepath)
+
+
+
 dfc2=dfcodes[['UNTERM English Short','FIFA']]
 dfc2.dropna(inplace=True)
 print(dfc2.head())
@@ -60,7 +66,7 @@ print(df.country_name.unique())
 
 
 
-def get_plots():
+
     fig = go.Figure(data=go.Choropleth(
         locations=df['FIFA'],
         z=df['nuclear_weapons_stockpile'],
@@ -90,5 +96,9 @@ def get_plots():
     lib = 'plotly_go'
     info_dict=dict(title=title, description=description, lib=lib)
     tuple=(key,fig,info_dict)
-    list=[tuple]
-    return list
+    return tuple
+
+
+def get_plots():
+    rlist =list(splot(2022),splot(2015),splot(2015))
+    return rlist
