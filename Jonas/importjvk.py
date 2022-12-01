@@ -17,7 +17,7 @@ Created on Wed Nov 30 10:42:43 2022
 
 import pandas as pd
 import streamlit as st
-import os 
+import os
 import json
 
 
@@ -81,8 +81,6 @@ def get_data():
     #data from https://data.worldbank.org/indicator/NY.GDP.MKTP.CD
     urlcsv=dir_path+"/../Jonas/archive/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_4701247/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_4701247.csv"
     GDPglob = pd.read_csv(urlcsv, index_col = [0], skipinitialspace=True,header=2)
-    # print(GDPglob.head(2))
-    # print(GDPglob.columns.values)
     
     urlcsv=dir_path+"/../Jonas/archive/API_SI.POV.GINI_DS2_en_csv_v2_4701295/API_SI.POV.GINI_DS2_en_csv_v2_4701295.csv"
     giniglob = pd.read_csv(urlcsv, index_col = [0], skipinitialspace=True,header=2)
@@ -125,33 +123,20 @@ def get_data():
     
     def dictkeyupdate(frame, handle):
         mykeys=list(yearcontrdict.keys())
-        # print(mykeys)
         for key in mykeys:
             keylist = json.loads(key)
             try:
                 yearcontrdict[key].update({handle:frame[str(keylist[0])][keylist[1]]})
-                # print("added "+handle+" for: "+key)
             except:
-                # print(key)
-                # print(keylist)
-                # print(str(keylist[0]))
-                # print(keylist[1])
-                # print(frame)
-                # try:
-                #     print(frame[str(keylist[0])])
-                # except:
-                #     pass
                 pass
-    # print(GDPglob)
     dictkeyupdate(GDPglob, "GDP")
     dictkeyupdate(giniglob, "Gini")
-    # lrge_df=pd.DataFrame.from_dict(yearcontrdict, orient='index').fillna(0).reset_index(drop=True)
     lrge_df=pd.DataFrame.from_dict(yearcontrdict, orient='index').reset_index(drop=True)
     lrge_df=lrge_df.combine_first(get_dataOLD()[1])
-    # print(lrge_df.head(2))
     return "Jonas1",lrge_df
 
-print(get_data()[1].head(2))
+# print(get_data()[1].head(2))
+# print(get_data())
 # print("")
 # print("")
 # print("")
