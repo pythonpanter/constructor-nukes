@@ -100,5 +100,5 @@ def splot(cyear):
 
 
 def get_plots():
-    rlist =[splot(1945),splot(1990),splot(2015)]
+    rlist =[splot(1945),splot(1985),splot(2015)]
     return rlist
