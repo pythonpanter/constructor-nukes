@@ -26,7 +26,7 @@ import streamlit as st
 import numpy as np
 
 @st.cache
-def plot_eval(df=ejvk.eval_frame()[1]):
+def get_plots(string=ejvk.eval_frame()[0],df=ejvk.eval_frame()[1],info=ejvk.eval_frame()[2]):
     # df[['year']]=df[['year']].astype('float64', raise_on_error = False)
     empty=df.head(0)
     print(empty)
@@ -87,12 +87,13 @@ def plot_eval(df=ejvk.eval_frame()[1]):
     return retval
 
 
-def get_plots(string=ejvk.eval_frame()[0],frame=ejvk.eval_frame()[1],info=ejvk.eval_frame()[2]):
-    return plot_eval(df=frame)
+# def get_plots(string=ejvk.eval_frame()[0],frame=ejvk.eval_frame()[1],info=ejvk.eval_frame()[2]):
+#     return plot_eval(df=frame)
 
-# myplots=get_plots()
-# print(len(get_plots()))
-# for plot in myplots:
-#     print(plot[2]["description"])
+myplots=get_plots()
+print(len(get_plots()))
+for plot in myplots[:2]:
+    print(plot[2]["description"])
+    plot[1].show()
 
 

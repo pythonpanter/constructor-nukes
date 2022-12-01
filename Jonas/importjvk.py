@@ -135,6 +135,13 @@ def get_data():
     lrge_df=lrge_df.combine_first(get_dataOLD()[1])
     return "Jonas1",lrge_df
 
+
+
+
+
+
+
+
 # print(get_data()[1].head(2))
 # print(get_data())
 # print("")
