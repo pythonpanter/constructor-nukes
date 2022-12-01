@@ -62,7 +62,7 @@ elif slide == (s['alexej']):
         import_plots(plots)
 elif slide == (s['jonas']):
     if usr['jvk']:
-        import plotjvk as pjvk
+        import completejvk as pjvk
         plots=pjvk.get_plots()
         import_plots(plots)
 elif slide == (s['kaih']):
