@@ -34,7 +34,7 @@ usr= {'jvk':0,
 import streamlit as st
 st.sidebar.title('NU*ES')
 st.sidebar.image(f'{kaipath}nuke.jpg')
-slide = st.sidebar.radio('Slide',['Intro','Jonas Story','Alexejs  Story','Kais  Story','Architecture'])
+slide = st.sidebar.radio('',['Intro','Jonas Story','Alexejs  Story','Kais  Story','Architecture'])
 st.header(slide)
 if sys.platform=='win32':
     st.sidebar.title('***LOCAL INSTANCE***')
