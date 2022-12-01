@@ -2,8 +2,10 @@
 import sys
 if sys.platform=='win32':
     dots='..'
+    kaipath=''
 else:
     dots='.'
+    kaipath='./KaiH/'
 
 dirs=['Jonas','Alexej','KaiB']
 for d in dirs:
@@ -14,7 +16,7 @@ import streamlit as st
 if sys.platform=='win32':
     st.title('***LOCAL INSTANCE***')
 st.title('Nuke.N.')
-st.image('bikinibomb.jpg')
+st.image(f'{kaipath}bikinibomb.jpg')
 
 # IMPORT ADDITIONAL PACKAGES
 from urllib.request import urlopen
