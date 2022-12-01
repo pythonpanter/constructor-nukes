@@ -23,7 +23,7 @@ s=dict(Intro='Intro',
             alexej='Alexejs  Story',
             kaib='Kai Bs Story',
             kaih='Kai Hs Story',
-            Architecture='Architecture')
+            Architecture='.')
 
 # STREAMLIT SIDEBAR
 st.sidebar.image(f'{kaipath}nuke.jpg')
