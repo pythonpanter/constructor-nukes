@@ -35,4 +35,4 @@ from urllib.request import urlopen
 import json
 from copy import deepcopy
 
-#st.title('Nukes')
+st.title('Nukes')
