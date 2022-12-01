@@ -16,7 +16,7 @@ import plotly.graph_objects as go
 
 #import evaljvk as ejvk
 import importjvk as ijvk
-@st.cache
+
 data= ijvk.get_dataOLD()
 df=data[1]
 #print(data[1].head())
