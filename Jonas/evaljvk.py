@@ -16,23 +16,25 @@ import numpy as np
 import importjvk as jvk
 from pandas.api.types import is_numeric_dtype
 
-@st.cache
-def eval_frame(datahandle="Jonas1", df=jvk.get_data):
+# @st.cache
+def eval_frame(datahandle="Jonas1", df=jvk.get_data()[1]):
     # quit()
-    df["nuclear"]=False
-    for country in list(df["country_name"].unique()):
-        locdf=df[df["country_name"]==country]
-        # locdf["nuclear"]=(locdf["nuclear_weapons_pursuit"].max()>0)
-        df[df["country_name"]==country]["nuclear"]=(locdf["nuclear_weapons_pursuit"].max()>0)
-    df["nuclear"]=df[["nuclear"]].fillna(value=False)
+    # df["nuclear"]=False
+    # for country in list(df["country_name"].unique()):
+    #     locdf=df[df["country_name"]==country]
+    #     # locdf["nuclear"]=(locdf["nuclear_weapons_pursuit"].max()>0)
+    #     df[df["country_name"]==country]["nuclear"]=(locdf["nuclear_weapons_pursuit"].max()>0)
+    # df["nuclear"]=df[["nuclear"]].fillna(value=False)
     print("Evaluating "+datahandle)
     cols=list(df.columns.values)
     isnumeric=np.zeros(len(cols))
     for colind in range(len(cols)):
         isnumeric[colind]=is_numeric_dtype(df[cols[colind]])
-    for name in df["country_name"].unique():
+        
+    for name in list(df["country_name"].unique()):
         locdf=df[df["country_name"]==name]
         for colind in range(len(cols)):
+            # print(isnumeric)
             if isnumeric[colind]:
                 diff=locdf[cols[colind]].diff()
                 df[cols[colind]+"_diff"]=diff
@@ -60,17 +62,19 @@ def eval_frame(datahandle="Jonas1", df=jvk.get_data):
     #         pass
     print(list(df.columns.values))
     return "eval JvK", df, None
-evalframe=eval_frame(*jvk.get_data())[1]
-# quit()
+# eval_frame()
+# evalframe=eval_frame(*jvk.get_data())[1]
+# # quit()
 
-# eval_frame(*jvk.get_data())
-# print(eval_frame(*jvk.get_data()))
-np.set_printoptions(threshold=np.inf)
-np.set_printoptions(linewidth=np.inf)
-# print(evalframe[1].head(1))
-print(evalframe["nuclear"].unique())
-# print(evalframe[evalframe["nuclear"]==True].to_numpy())
-# print(list(evalframe[1].columns.values))
+# # eval_frame(*jvk.get_data())
+# # print(eval_frame(*jvk.get_data()))
+# np.set_printoptions(threshold=np.inf)
+# np.set_printoptions(linewidth=np.inf)
+# # print(evalframe.head(1))
+# # print(evalframe["nuclear"].unique())
+# # print(evalframe[evalframe["nuclear"]==True].to_numpy())
+# print(list(evalframe.columns.values))
+# print(list(evalframe.head(1).to_numpy()))
 
 
 
