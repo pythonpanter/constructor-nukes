@@ -20,7 +20,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import importjvk as ijvk
 import pandas as pd
-
+import plotly.graph_objects as go
 
 def plot_eval(df):
     # df[['year']]=df[['year']].astype('float64', raise_on_error = False)
@@ -29,7 +29,12 @@ def plot_eval(df):
     filtered = df[df['year']>1979]
     numeric_df = filtered.filter(items=['Recency', 'Frequency', 'Revenue'])
     corr = numeric_df.corr()
-    fig=sns.objects.Plot()
+    fig = go.Figure()
+    fig.add_trace(px.imshow(
+    x=x,
+    y=y,
+    name=name,
+    hovertext=hovertext)
     fig.heatmap(corr, cmap=sns.diverging_palette(140, 10, as_cmap=True), vmin=-1, vmax=1)
     # ax.show()
 

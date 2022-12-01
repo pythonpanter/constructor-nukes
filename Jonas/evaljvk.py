@@ -61,8 +61,13 @@ def eval_frame(datahandle="Jonas1", df=ijvk.get_data()[1]):
     #             isnormal[colind]=False
     #     else:
     #         pass
+    dummydict={"title":'None',
+        "description" : 'None',
+        "key":'None',
+        "lib" : 'None'}
+
     print(list(df.columns.values))
-    return "eval JvK", df, None
+    return "eval JvK", df, dummydict
 # eval_frame()
 # evalframe=eval_frame(*jvk.get_data())[1]
 # # quit()
