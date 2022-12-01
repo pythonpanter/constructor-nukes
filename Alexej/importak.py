@@ -56,8 +56,19 @@ def get_data():
     # Merge dataframes
     df_merged = pd.merge(pd.merge(df_proliferation, df_stockpiles, on=[
                          'country_name', 'year']), df_tests, on=['country_name', 'year'])
-
-    return "Alexej1", df_merged
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    # Return the merged dataframe
+    return "@Alexej_Khalilzada", df_merged
 
 
 ##### Get data and continue with following tests:
@@ -67,8 +78,13 @@ get_data() # let's grab the available data
 
 merged_df = get_data()
 merged_df = merged_df[1]
+
+# Debug Output
 print('* merged_df = .......\n', merged_df)
-print(len(merged_df))
+print('* Len of dataframe "merged_df" = ', len(merged_df))
+for column in merged_df:
+    # print('* Column in dataframe = ', merged_df[column])
+    print(column)
 
 alpha = 0.05 # p value
 
