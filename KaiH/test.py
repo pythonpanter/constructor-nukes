@@ -17,6 +17,7 @@ if sys.platform=='win32':
     st.title('***LOCAL INSTANCE***')
 st.title('Nuke. N.')
 st.image(f'{kaipath}bikinibomb.jpg')
+st.caption('Showgirl Joy Healy smiles as she straddles a U.S. Air Force missile, wearing a bikini costume, at an American Federation of Labor Union show, in Los Angeles, California, in 1945  (Photo credit: Hulton Archive/Getty Images)')
 
 # IMPORT ADDITIONAL PACKAGES
 from urllib.request import urlopen
