@@ -39,13 +39,21 @@ df= df.merge(dfc2, left_on='country_name', right_on='UNTERM English Short', how=
 #df.dropna(inplace=True)
 df=df[(df.nuclear_weapons_stockpile>0)]
 print(df.info())
-df.index=df.country_name
-#df['Russia'].FIFA='RUS'
-df.at['Russia','FIFA']='RUS'
-df.at['North Korea','FIFA']='PRK'  
-df.at['United Kingdom','FIFA']='UK'  #############
-df.at['United States ','FIFA']='US'  #############
+print(df)
 dfc2.dropna(inplace=True)
+dfc2
+#df=df.set_index('country_name')
+#df['Russia'].FIFA='RUS'
+#df.at['Russia','FIFA']='RUS'
+#df.at['North Korea','FIFA']='PRK'
+#df.at['United Kingdom','FIFA']='GBR'  #############
+#df.at['United States','FIFA']='USA'  #############
+df['FIFA'][df.country_name=='Russia']='RUS'
+df['FIFA'][df.country_name=='North Korea']='PRK'
+df['FIFA'][df.country_name=='United Kingdom']='GBR'
+df['FIFA'][df.country_name=='United States']='USA'
+
+#dfc2.dropna(inplace=True)
 print(df)
 print(df.country_name.unique())
 
@@ -56,11 +64,11 @@ def get_plots():
     fig = go.Figure(data=go.Choropleth(
         locations=df['FIFA'],
         z=df['nuclear_weapons_stockpile'],
-        colorscale='Jet',
+        colorscale='Reds',
 
         text=df['country_name'],  # hover text
         marker_line_color='white',  # line markers between states
-        colorbar_title="% Pop.", marker_line_width=0)
+        colorbar_title="Nukes", marker_line_width=0)
     )
 
     #fig.update_layout(title_text='World wide web usage,')
@@ -68,16 +76,16 @@ def get_plots():
                       plot_bgcolor="#0e1117",
                       paper_bgcolor="#0e1117",
                       font_color="white",
-                      geo_bgcolor="#0e1117",
+                      geo_bgcolor="#222222",
                       )
     fig.update_geos(showlakes=False,
                     projection_type="orthographic",
                     projection_rotation=dict(lon=10, lat=45, roll=0),
                     )
     #fig.update_traces(unselected_marker_opacity=0.5, selector=dict(type='choropleth'))
-    title='dropping important stuff'
-    description = 'Example description'
-    key='inetusage'
+    title='Nuclear armament'
+    description = 'National stockpile of nuclear Weapons in 2015'
+    key='stockpilek'
     lib = 'plotly_go'
     info_dict=dict(title=title, description=description, lib=lib)
     tuple=(key,fig,info_dict)
