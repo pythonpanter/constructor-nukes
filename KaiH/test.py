@@ -34,7 +34,7 @@ usr= {'jvk':0,
       'kb':1,
       'kh':0}
 
-slide = st.sidebar.radio('Slide',['nu*es','Jonas','Alexej','Kai B','Kai H'])
+slide = st.sidebar.radio('Slide',['nu*es','Jonas Story','Alexejs  Story','Kais  Story','Architecture'])
 st.header(slide)
 
 def import_plots(plots):
@@ -60,11 +60,14 @@ elif slide == ('kb'):
         import plotjvk as pjvk
         plots=pjvk.get_plots()
         import_plots(plots)
-elif slide == ('kb'):
-    if usr['kh']:
-        import plotkh as pkh
-        plots=pkh.get_plots()
-        import_plots(plots)
+elif slide == ('Architecture'):
+    #if usr['kh']:
+     #   import plotkh as pkh
+      #  plots=pkh.get_plots()
+       # import_plots(plots)
+    st.image(f'{kaipath}architecture.jpg')
+    st.caption(
+        'Architecture of underlying framework (WIP)')
 elif slide == ('nu*es'):
     st.image(f'{kaipath}bikinibomb.jpg')
     st.caption('Showgirl Joy Healy smiles as she straddles a U.S. Air Force missile, wearing a bikini costume, at an American Federation of Labor Union show, in Los Angeles, California, in 1945  (Photo credit: Hulton Archive/Getty Images)')
