@@ -23,12 +23,13 @@ s=dict(Intro='Intro',
             alexej='Alexejs  Story',
             kaib='Kai Bs Story',
             kaih='Kai Hs Story',
+            sum='Summary',
             Architecture='.')
 
 # STREAMLIT SIDEBAR
 st.sidebar.image(f'{kaipath}nuke.jpg')
 st.sidebar.title('NU*ES')
-slide = st.sidebar.radio('',[s['Intro'],s['jonas'],s['alexej'],s['kaib'],s['kaih'],s['Architecture']])
+slide = st.sidebar.radio('',[s['Intro'],s['jonas'],s['alexej'],s['kaib'],s['sum'],s['kaih'],s['Architecture']])
 st.header(slide)
 if sys.platform=='win32':
     st.sidebar.title('***LOCAL INSTANCE***')
