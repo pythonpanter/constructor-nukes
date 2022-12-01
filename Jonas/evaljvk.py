@@ -10,13 +10,14 @@ import pandas as pd
 import streamlit as st
 import os
 import json
+import importlib.util
 # from scipy.stats import shapiro
 # from importjvk import get_data
 import numpy as np
 import importjvk as ijvk
 from pandas.api.types import is_numeric_dtype
 
-@st.cache
+# @st.cache
 def eval_frame(datahandle="Jonas1", df=ijvk.get_data()[1]):
     # quit()
     # df["nuclear"]=False
@@ -60,8 +61,13 @@ def eval_frame(datahandle="Jonas1", df=ijvk.get_data()[1]):
     #             isnormal[colind]=False
     #     else:
     #         pass
+    dummydict={"title":'None',
+        "description" : 'None',
+        "key":'None',
+        "lib" : 'None'}
+
     print(list(df.columns.values))
-    return "eval JvK", df, None
+    return "eval JvK", df, dummydict
 # eval_frame()
 # evalframe=eval_frame(*jvk.get_data())[1]
 # # quit()
