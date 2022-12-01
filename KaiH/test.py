@@ -44,7 +44,7 @@ def show_plot(plots,index):
     if (plots[index][2]['lib'] == 'plotly_go') or (plots[index][2]['lib'] == 'plotly_chart'):
         st.plotly_chart(plots[index][1])
 
-#Pagegen
+#PageGen
 if slide==(s['kaib']):
     if usr['kb']:
         import plotkb as pkb
