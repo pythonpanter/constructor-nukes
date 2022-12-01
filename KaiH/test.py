@@ -5,7 +5,7 @@ for d in dirs:
     sys.path.insert(0, f'../{d}')
 
 import importjvk as jvk
-import importak as ak              #Alexej not yet compatible
+import importak as ak
 
 
 
@@ -22,8 +22,13 @@ from urllib.request import urlopen
 import json
 from copy import deepcopy
 
+import plotkb as pkb
 
-
+plots=pkb.get_plots()
+(key,fig,info_dict)=plots[0]
+st.title('Kai B Plot')
+st.plotly_chart(fig)
+#(key,fig,info_dict)=pkb.cplot(df)
 
 
 lj=jvk.get_data()
