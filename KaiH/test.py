@@ -11,6 +11,7 @@ dirs=['Jonas','Alexej','KaiB']
 for d in dirs:
     sys.path.insert(0, f'{dots}/{d}')
 import streamlit as st
+#import plotly.express as px
 
 # SET USR
 usr= {'jvk':1,
@@ -43,8 +44,10 @@ def import_plots(plots):
 def show_plot(plots,index):
     st.header(plots[index][2]['title'])
     st.subheader(plots[index][2]['description'])
-    if (plots[index][2]['lib'] == 'plotly_go') or (plots[index][2]['lib'] == 'plotly_chart'):
+    if (plots[index][2]['lib'] == 'plotly_go') or (plots[index][2]['lib'] == 'plotly_chart')or (plots[index][2]['lib'] == 'plotly_express'):
         st.plotly_chart(plots[index][1])
+  #  elif (plots[index][2]['lib'] == 'plotly_express'):
+  #      st.plotly_chart(plots[index][1])
 
 #PageGen
 if slide==(s['kaib']):
