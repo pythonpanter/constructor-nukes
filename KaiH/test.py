@@ -31,16 +31,42 @@ import json
 
 usr= {'jvk':0,
       'ak':0,
-      'kb':0,
+      'kb':1,
       'kh':0}
 
-import plotkb as pkb
+def import_plots():
+    (key, fig, info_dict) = plots[0]
 
-plots=pkb.get_plots()
-(key,fig,info_dict)=plots[0]
+if usr['kb']:
+    import plotkb as pkb
+    plots=pkb.get_plots()
+    st.header('Kai B Plots')
 
-st.title('Kai B Plot')
-st.plotly_chart(fig)
+    st.header(plots[0][2]['title'])
+    st.subheader(plots[0][2]['description'])
+    st.plotly_chart(plots[0][1])
+
+if usr['ak']:
+    import plotak as pak
+    plots=pak.get_plots()
+    st.header('Alexej Plots')
+
+    st.plotly_chart(plots[0][1])
+
+if usr['jvk']:
+    import plotjvk as pjvk
+    plots=pjvk.get_plots()
+    st.header('Jonas Plots')
+
+    st.plotly_chart(plots[0][1])
+
+if usr['kh']:
+    import plotkh as pkh
+    plots=pkh.get_plots()
+    st.header('Kai H Plots')
+
+    st.plotly_chart(plots[0][1])
+
 
 
 
