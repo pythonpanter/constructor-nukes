@@ -16,52 +16,52 @@ import plotly.graph_objects as go
 
 #import evaljvk as ejvk
 import importjvk as ijvk
-@st.cache
+#@st.cache
 data= ijvk.get_dataOLD()
 df=data[1]
 #print(data[1].head())
 #data2=ejvk.eval_frame(datahandle="Jonas1", df=ijvk.get_dataOLD()[1])
 dfraw=data[1]
 
-print(codepath)
+
 codepath=f"{kaipath}country_codes.csv"
-@st.cache
+#@st.cache
 dfcodes=pd.read_csv(codepath)
 #df=dfraw
 
 
-def splot(cyear)
-df = dfraw[dfraw.year==cyear]
+def splot(cyear):
+    df = dfraw[dfraw.year==cyear]
 
 
 
 
-dfc2=dfcodes[['UNTERM English Short','FIFA']]
-dfc2.dropna(inplace=True)
-print(dfc2.head())
-df= df.merge(dfc2, left_on='country_name', right_on='UNTERM English Short', how='left' )
+    dfc2=dfcodes[['UNTERM English Short','FIFA']]
+    dfc2.dropna(inplace=True)
+    print(dfc2.head())
+    df= df.merge(dfc2, left_on='country_name', right_on='UNTERM English Short', how='left' )
 
 
-#df.dropna(inplace=True)
-df=df[(df.nuclear_weapons_stockpile>0)]
-print(df.info())
-print(df)
-dfc2.dropna(inplace=True)
-dfc2
-#df=df.set_index('country_name')
-#df['Russia'].FIFA='RUS'
-#df.at['Russia','FIFA']='RUS'
-#df.at['North Korea','FIFA']='PRK'
-#df.at['United Kingdom','FIFA']='GBR'  #############
-#df.at['United States','FIFA']='USA'  #############
-df['FIFA'][df.country_name=='Russia']='RUS'
-df['FIFA'][df.country_name=='North Korea']='PRK'
-df['FIFA'][df.country_name=='United Kingdom']='GBR'
-df['FIFA'][df.country_name=='United States']='USA'
+    #df.dropna(inplace=True)
+    df=df[(df.nuclear_weapons_stockpile>0)]
+    print(df.info())
+    print(df)
+    dfc2.dropna(inplace=True)
+    dfc2
+    #df=df.set_index('country_name')
+    #df['Russia'].FIFA='RUS'
+    #df.at['Russia','FIFA']='RUS'
+    #df.at['North Korea','FIFA']='PRK'
+    #df.at['United Kingdom','FIFA']='GBR'  #############
+    #df.at['United States','FIFA']='USA'  #############
+    df['FIFA'][df.country_name=='Russia']='RUS'
+    df['FIFA'][df.country_name=='North Korea']='PRK'
+    df['FIFA'][df.country_name=='United Kingdom']='GBR'
+    df['FIFA'][df.country_name=='United States']='USA'
 
-#dfc2.dropna(inplace=True)
-print(df)
-print(df.country_name.unique())
+    #dfc2.dropna(inplace=True)
+    print(df)
+    print(df.country_name.unique())
 
 
 
@@ -90,8 +90,8 @@ print(df.country_name.unique())
                     showland=True, landcolor="#222222",
                     )
     #fig.update_traces(unselected_marker_opacity=0.5, selector=dict(type='choropleth'))
-    title='National stockpile of nuclear Weapons'
-    description = f'Year {str(cyear)}'
+    title=''
+    description = f'National stockpile of nuclear Weapons in {str(cyear)}'
     key='stockpilek'
     lib = 'plotly_go'
     info_dict=dict(title=title, description=description, lib=lib)
@@ -100,5 +100,5 @@ print(df.country_name.unique())
 
 
 def get_plots():
-    rlist =list(splot(2022),splot(2015),splot(2015))
+    rlist =[splot(1945),splot(1990),splot(2015)]
     return rlist
