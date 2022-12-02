@@ -79,9 +79,8 @@ def dummy(dataframe):
     fig.update_layout(title_text="Nuclear Weapons Stockpile per Country per Year", title_yanchor = "top", legend_itemsizing="constant")
     
     # add vertical lines to mark special events
-    fig.add_vline(y=1982)
+    fig.add_vline(x=1982, line_width=3, line_dash="dash", line_color="green"))
 
-    # fig.show()
     # return figure
     return fig
 
