@@ -1,17 +1,60 @@
-""" # SET FOLDER ENVIRONMENT
-import sys
-if sys.platform=='win32':
-    dots='..'
-    alexejpath=''
-else:
-    dots='.'
-    alexejpath='./Alexej/'
+###### Which columns do all three datasets have in common?
+# nuclear_weapons_proliferation_owid.csv    ---> country_name   year    nuclear_weapons_status  nuclear_weapons_consideration   nuclear_weapons_pursuit     nuclear_weapons_possession
+# nuclear_weapons_stockpiles.csv            ---> country_name   year                                                                                                                        nuclear_weapons_stockpile
+# nuclear_weapons_tests_states.csv          ---> country_name   year                                                                                                                                                    nuclear_weapons_tests
+#
+# ---> Conclusion: The columns 'country_name' and 'year' are shared between the three datasets
 
-dirs=['Jonas','KaiH','KaiB']
-for d in dirs:
-    sys.path.insert(0, f'{dots}/{d}') """
-
+###### Import modules
+import pandas as pd
+import os
+import streamlit as st
 import plotly.express as px
+
+##### Variables
+list_of_columns = [] # List of columns
+
+##### Functions
+@st.cache
+def read_data(pathToCsv):
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    
+    urlcsv = dir_path+pathToCsv
+    csv_data = pd.read_csv(
+        urlcsv, index_col=[0, 1], skipinitialspace=True).reset_index()
+    return csv_data
+
+@st.cache
+def get_data():
+    pd.set_option('display.max_rows', 500)
+    pd.set_option('display.max_columns', 500)
+    pd.set_option('display.width', 1000)
+    
+    path_to_stockpiles = "/../dataset/nuclear_weapons_stockpiles.csv"
+    path_to_tests = "/../dataset/nuclear_weapons_tests_states.csv"
+    path_to_proliferation = "/../dataset/nuclear_weapons_proliferation_owid.csv"
+    
+    df_stockpiles = read_data(path_to_stockpiles)
+    df_tests = read_data(path_to_tests)
+    df_proliferation = read_data(path_to_proliferation)
+
+    # Merge dataframes
+    df_merged = pd.merge(pd.merge(df_proliferation, df_stockpiles, on=[
+                         'country_name', 'year']), df_tests, on=['country_name', 'year'])
+    
+    
+    ### Group by 'country_name' and 'year'
+    overall_weapons_stockpile_per_country = df_merged.groupby(['country_name', 'year'], as_index=False)['nuclear_weapons_stockpile'].sum()
+    overall_weapons_tests_per_country = df_merged.groupby(['country_name', 'year'], as_index=False)['nuclear_weapons_tests'].count()
+    overall_weapons_status_per_country = df_merged.groupby(['country_name', 'year'], as_index=False)['nuclear_weapons_status'].count()
+    
+    # Merge dataframes
+    # overall_stockpiles_tests_merged_df = pd.merge(overall_weapons_stockpile_per_country, overall_weapons_tests_per_country, on=['country_name', 'year'])
+    df_merged = pd.merge(overall_weapons_stockpile_per_country, overall_weapons_tests_per_country, on=['country_name', 'year'])
+    
+        # Return the merged dataframe
+    return "@Alexej_Khalilzada", df_merged
+
 
 def dummy(dataframe):
     ##### Plot
@@ -45,8 +88,6 @@ def get_plots():
     lib = 'plotly_express'
     info_dict=dict(title=title, description=description, lib=lib)
     
-    # dummy(overall_stockpiles_tests_merged_df)
-    # dummy(df_merged)
     dummy(get_data([1]))
     
     return [(key, fig, info_dict)]

@@ -5,23 +5,11 @@
 #
 # ---> Conclusion: The columns 'country_name' and 'year' are shared between the three datasets
 
-""" # SET FOLDER ENVIRONMENT
-import sys
-if sys.platform=='win32':
-    dots='..'
-    kaipath=''
-else:
-    dots='.'
-    kaipath='./KaiH/'
-
-dirs=['Jonas','KaiH','KaiB']
-for d in dirs:
-    sys.path.insert(0, f'{dots}/{d}') """
-
 ###### Import modules
 import pandas as pd
 import os
 import streamlit as st
+import plotly.express as px
 
 ##### Variables
 list_of_columns = [] # List of columns
@@ -67,39 +55,6 @@ def get_data():
         # Return the merged dataframe
     return "@Alexej_Khalilzada", df_merged
 
-##### Main part for testing #####
-
-# get_data() # let's grab the available data
-
-""" merged_df = get_data()
-author = merged_df[0]
-merged_df = merged_df[1]
-
-# Debug Output
-print(f'* merged_df = \n{merged_df}')
-print(f'* Length of dataframe "merged_df" = {len(merged_df)}')
-print(f'* Author = {author}')
-
-##### Playing around
-### Group by country
-# 
-dummy_df = merged_df.copy()
-overall_weapons_stockpile_per_country = dummy_df.groupby(['country_name', 'year'], as_index=False)['nuclear_weapons_stockpile'].sum()
-overall_weapons_tests_per_country = dummy_df.groupby(['country_name', 'year'], as_index=False)['nuclear_weapons_tests'].count()
-overall_weapons_status_per_country = dummy_df.groupby(['country_name', 'year'], as_index=False)['nuclear_weapons_status'].count()
-
-print('\n\n****************************************************************************************************************\n')
-print(overall_weapons_stockpile_per_country.head(60))
-print('\n\n****************************************************************************************************************\n')
-print(overall_weapons_tests_per_country.head(60))
-print('\n\n****************************************************************************************************************\n')
-print(overall_weapons_status_per_country.tail(60))
-
-# Merge dataframes
-overall_stockpiles_tests_merged_df = pd.merge(overall_weapons_stockpile_per_country, overall_weapons_tests_per_country, on=['country_name', 'year'])
-print('\n\n****************************************************************************************************************')
-print('****************************************************************************************************************\n')
-print(overall_stockpiles_tests_merged_df.tail(60)) """
 
 """ def dummy(dataframe):
     ##### Plot
@@ -126,10 +81,6 @@ print(overall_stockpiles_tests_merged_df.tail(60)) """
     # return figure
     return fig
 
-# weapons_tests_df = dummy_df.groupby(['country_name', 'year'], as_index=False)['nuclear_weapons_stockpile'].get_value()
-# print('\n\n*************************************************************************** Weapons Tests DF *****************************\n')
-# print(weapons_tests_df.tail(60))
-
 def get_plots():
     title='Nuclear Weapons Stockpile per Country per Year'
     description = 'This chart shows the nuclear weapons stockpile per country per year'
@@ -137,8 +88,9 @@ def get_plots():
     lib = 'plotly_express'
     info_dict=dict(title=title, description=description, lib=lib)
     
-    dummy(overall_stockpiles_tests_merged_df).show()
+    dummy(get_data([1]))
     
-    return [(key, fig, info_dict)] """
-
-# get_plots()
+    return [(key, fig, info_dict)]
+ """
+ 
+ 
