@@ -262,15 +262,15 @@ def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
                     retval.append((key,fig,info_dict))
     # list of not-boring plots:
         
-    # showplots=[27, 25, 15, 5, ]
-    # showplots=[show -1 for show in showplots]
-    # # reordered=list(showplots)
-    # retval2=[retval[i] for i in showplots]
-    # for i in range(len(retval)):
-    #     if i not in showplots:
-    #         retval2.append(retval[i]) 
-    # return retval2[:6]
-    return retval[:6]
+    showplots=[27, 25, 13, 5, ]
+    showplots=[show -1 for show in showplots]
+    # reordered=list(showplots)
+    retval2=[retval[i] for i in showplots]
+    for i in range(len(retval)):
+        if i not in showplots:
+            retval2.append(retval[i]) 
+    return retval2[:6]
+    # return retval[:6]
 
 myplots=get_plots()
 
