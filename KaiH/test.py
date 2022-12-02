@@ -87,7 +87,7 @@ elif slide == (s['kaih']):
         plots=pkh.get_plots()
 
         #trinity facts
-        st.subheader('The Trinity Test')
+        st.subheader('The Trinity Test in 1945')
         st.image(f'{kaipath}trinity.jpg', width=gwidth)
         st.caption('Trinity: Test of the first nuclear Weapon in New Mexico, US 16.07.45 (Picture Credit: https://www.atomicarchive.com)')
 
@@ -97,7 +97,7 @@ elif slide == (s['kaih']):
         #tsar image destruction
         spacing()
 
-        st.subheader('The Tsar Bomb (1961), peak of the race for stronger weapons')
+        st.subheader('The Tsar Bomb in 1961, peak of the race for stronger weapons')
         st.image(f'{kaipath}tsar.jpg', width=gwidth)
         st.caption('The Tsar Bomb\'s (50,000-60,000 kts) fireball, about 8km wide at its maximum reached nearly 10.5 km in the sky. (https://wikipedia.de)')
 
@@ -106,7 +106,7 @@ elif slide == (s['kaih']):
         st.caption('During Cold War, nuclear stockpile rose extremely, allowing severe demolition of the entire planet for several times with the arsenal of a single country.')
         spacing()
 
-        st.subheader('NEW Start, the latest big nuclear arms reduction treaty')
+        st.subheader('NEW Start in 2012, the latest big nuclear arms reduction treaty')
         st.image(f'{kaipath}newstart.jpg', width=gwidth)
         st.caption('Then-Vice President Joe Biden and Russian Prime Minister Vladimir Putin in Moscow, Russia, in 2012. | AP Photo/Alexander Zemlianichenko  (https://www.politico.com)')
 
