@@ -9,8 +9,6 @@
 import pandas as pd
 import os
 import streamlit as st
-import plotly.graph_objects as go
-import plotly.express as px
 
 ##### Variables
 list_of_columns = [] # List of columns
@@ -80,7 +78,7 @@ print('\n\n*********************************************************************
 print('****************************************************************************************************************\n')
 print(overall_stockpiles_tests_merged_df.tail(60))
 
-def dummy(dataframe):
+""" def dummy(dataframe):
     ##### Plot
     # 'year' in the x-axis and 'nuclear_weapons_stockpile' in the y-axis.
     fig = px.line(dataframe, x="year", y="nuclear_weapons_stockpile", color="country_name")
@@ -118,6 +116,6 @@ def get_plots():
     
     dummy(overall_stockpiles_tests_merged_df).show()
     
-    return [(key, fig, info_dict)]
+    return [(key, fig, info_dict)] """
 
-get_plots()
+# get_plots()
