@@ -28,7 +28,7 @@ codepath=f"{kaipath}country_codes.csv"
 
 dfcodes=pd.read_csv(codepath)
 #df=dfraw
-gwidth=800
+gwidth=750
 
 def splot(cyear,lat,long,roll):
     df = dfraw[dfraw.year==cyear]

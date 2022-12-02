@@ -19,7 +19,7 @@ usr= {'jvk':1,
       'ak':1,
       'kb':1,
       'kh':1}
-gwidth=800
+gwidth=750
 s=dict(Intro='Intro',
             jonas='Jonas Story',
             alexej='Alexejs  Story',
@@ -76,9 +76,10 @@ elif slide == (s['kaih']):
         show_plot(plots, 0)
         #tsar image destruction
         st.image(f'{kaipath}tsar.jpg', width=gwidth)
-        st.caption('The Tsar Bomba\'s fireball, about 8km (5.0mi) wide at its maximum, was prevented from touching the ground by the shock wave, but reached nearly 10.5 km (6.5 mi) in the sky – the altitude of the deploying bomber (wikipedia.de)')
+        st.caption('The Tsar Bomba\'s fireball, about 8km wide at its maximum reached nearly 10.5 km in the sky. (https://wikipedia.de)')
         show_plot(plots,1)
-        #Salt start
+        st.image(f'{kaipath}newstart.jpg', width=gwidth)
+        st.caption('Then-Vice President Joe Biden and Russian Prime Minister Vladimir Putin in Moscow, Russia, in 2012. | AP Photo/Alexander Zemlianichenko  (https://www.politico.com)')
         show_plot(plots,2)
 elif slide == (s['Architecture']):
     st.image(f'{kaipath}architecture.jpg')
