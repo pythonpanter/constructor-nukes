@@ -166,6 +166,8 @@ def eval_frame(datahandle="Jonas1", df=get_data()[1]):
 import plotly.express as px
 import plotly.graph_objects as go
 
+
+
 def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
     df['Intercept'] = 1
     MySymbs=["circle", "square", "diamond", "cross", "x", "triangle-up", "triangle-left", "pentagon",
@@ -265,7 +267,7 @@ def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
     for i in range(len(retval)):
         if i not in showplots:
             retval2.append(retval[i]) 
-    return retval2
+    return retval2[:6]
 
 myplots=get_plots()
 
