@@ -69,8 +69,8 @@ def dummy(dataframe):
 
     # Change color background for the chart and the whole plot.
     fig.update_layout({
-        'plot_bgcolor': 'rgb(162,181,205)',
-        'paper_bgcolor': 'rgb(162,181,205)'
+        'plot_bgcolor': 'rgba(0, 0, 0, 0)',
+        'paper_bgcolor': 'rgba(0, 0, 0, 0)'
     })
 
     # Add title, and x and y labels with font size 18.
