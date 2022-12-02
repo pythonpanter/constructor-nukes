@@ -93,7 +93,7 @@ elif slide == (s['kaih']):
 
 
         show_plot(plots, 0)
-        st.caption('Amid 1945, the United States built "little-boy" and "fat-man", the first operational atomomic bombs (15-20 kts).')
+        st.caption('Amid 1945, the United States became the first nuclear power by building "little-boy" and "fat-man", the first operational atomic bombs (15-20 kts), later dropped on Hiroshima and Nagasaki.')
         #tsar image destruction
         spacing()
 
