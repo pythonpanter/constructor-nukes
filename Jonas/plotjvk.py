@@ -6,6 +6,9 @@ Created on Thu Dec  1 14:26:00 2022
 @author: jvk
 """
 
+def get_data():
+    quit()
+
 # import pandas as pd
 # import plotly.express as px
 # import json

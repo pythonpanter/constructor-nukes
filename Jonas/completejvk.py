@@ -260,7 +260,7 @@ def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
                         # plot_bgcolor="rgb(240, 250, 240)",
                         # paper_bgcolor="rgb(240, 250, 240)"
                         )
-                    description = pair[0]+" and "+pair[1]+", correlated"
+                    description =pair[1] +" over "+  pair[0]#+", correlated"
                     if dfind==0:
                         description+=" for a data set reduced to nuclear states, cleaned of NaNs"
                     else:
