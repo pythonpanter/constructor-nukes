@@ -1,3 +1,16 @@
+# SET FOLDER ENVIRONMENT
+import sys
+if sys.platform=='win32':
+    dots='..'
+    kaipath=''
+else:
+    dots='.'
+    kaipath='./KaiH/'
+
+dirs=['Jonas','KaiH','KaiB']
+for d in dirs:
+    sys.path.insert(0, f'{dots}/{d}')
+
 import plotly.express as px
 
 def dummy(dataframe):
