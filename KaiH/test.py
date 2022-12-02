@@ -62,6 +62,7 @@ elif slide == (s['alexej']):
         import_plots(plots)
 elif slide == (s['jonas']):
     if usr['jvk']:
+        st.set_page_config(layout="wide")
         import completejvk as pjvk
         plots=pjvk.get_plots()
         import_plots(plots)
@@ -69,10 +70,16 @@ elif slide == (s['kaih']):
     if usr['kh']:
         import plotkh as pkh
         plots=pkh.get_plots()
-        import_plots(plots)
+        st.image(f'{kaipath}trinity.jpg')
+        st.caption('Trinity: Test of the first nuclear Weapon in New Mexico, US 16.07.45 (Picture Credit: https://www.atomicarchive.com)')
+        show_plot(plots,0)
+        show_plot(plots,1)
+        show_plot(plots,2)
 elif slide == (s['Architecture']):
     st.image(f'{kaipath}architecture.jpg')
     st.caption('Architecture of underlying framework for nu*de data analysis (WIP)')
 elif slide == (s['Intro']):
     st.image(f'{kaipath}bikinibomb.jpg')
     st.caption('Showgirl Joy Healy smiles as she straddles a U.S. Air Force missile, wearing a bikini costume, at an American Federation of Labor Union show, in Los Angeles, California, in 1945  (Photo credit: Hulton Archive/Getty Images)')
+
+

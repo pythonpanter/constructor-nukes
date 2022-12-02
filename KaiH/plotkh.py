@@ -30,7 +30,7 @@ dfcodes=pd.read_csv(codepath)
 #df=dfraw
 
 
-def splot(cyear):
+def splot(cyear,lat,long,roll):
     df = dfraw[dfraw.year==cyear]
 
 
@@ -88,7 +88,7 @@ def splot(cyear):
                       )
     fig.update_geos(showlakes=False,
                     projection_type="orthographic",
-                    projection_rotation=dict(lon=10, lat=45, roll=0),
+                    projection_rotation=dict(lon=long, lat=lat , roll=roll),
                     showland=True, landcolor="#222222",
                     )
     #fig.update_traces(unselected_marker_opacity=0.5, selector=dict(type='choropleth'))
@@ -102,5 +102,5 @@ def splot(cyear):
 
 
 def get_plots():
-    rlist =[splot(1945),splot(1985),splot(2022)]
+    rlist =[splot(1945,35,-105,0),splot(1985,60,100,0),splot(2022,90,0,0)]
     return rlist
