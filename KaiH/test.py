@@ -112,7 +112,7 @@ elif slide == (s['kaih']):
 
 
         show_plot(plots,2)
-        st.caption('In 2022, the amount of nuclear weapons is severely smaller, than at the peak of the cold war. However, since warheads are much more powerful these days, nuclear deterrence is still given. Interestingly, the nuclear armament mainly takes place in the northern hemisphere of the planet. Current events remind of the volatiliy of the well known concept of mutually assured destruction (MAD)  ')
+        st.caption('In 2022, the amount of nuclear weapons is severely smaller, than at the peak of the cold war. However, since warheads are much more powerful these days, nuclear deterrence is still given. Interestingly, the nuclear armament mainly takes place in the northern hemisphere of the planet. Current events remind of the volatiliy of the well known concept of mutually assured destruction (MAD).  ')
 
 elif slide == (s['Architecture']):
     st.image(f'{kaipath}architecture.jpg')
