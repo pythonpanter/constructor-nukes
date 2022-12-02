@@ -269,6 +269,7 @@ def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
 
 myplots=get_plots()
 
+
 # for plot in myplots[:6]:
 for plot in myplots:
     print(plot[2]["description"])
