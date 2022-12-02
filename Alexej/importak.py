@@ -29,9 +29,9 @@ def get_data():
     pd.set_option('display.max_columns', 500)
     pd.set_option('display.width', 1000)
     
-    path_to_stockpiles = "/../dataset/nuclear_weapons_stockpiles.csv"
-    path_to_tests = "/../dataset/nuclear_weapons_tests_states.csv"
-    path_to_proliferation = "/../dataset/nuclear_weapons_proliferation_owid.csv"
+    path_to_stockpiles = "/./dataset/nuclear_weapons_stockpiles.csv"
+    path_to_tests = "/./dataset/nuclear_weapons_tests_states.csv"
+    path_to_proliferation = "/./dataset/nuclear_weapons_proliferation_owid.csv"
     
     df_stockpiles = read_data(path_to_stockpiles)
     df_tests = read_data(path_to_tests)
