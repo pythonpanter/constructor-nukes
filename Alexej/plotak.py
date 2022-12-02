@@ -84,6 +84,7 @@ def dummy(dataframe):
     fig.add_vline(x=1949, line_width=3, line_dash="dash", line_color="red", annotation_text="Soviet Union secretl first successful weapon test\n29 August 1949")
     fig.add_vline(x=1962, line_width=3, line_dash="line", line_color="yellow", annotation_text="The Cuban Missile Crisis\n16–29 October 1962")
     fig.add_vline(x=1963, line_width=3, line_dash="dash", line_color="blue", annotation_text="Improved US-USSR relations\n1963")
+    fig.add_vline(x=1963, line_width=3, line_dash="dash", line_color="grey", annotation_text="The Treaty on the Non-Proliferation of Nuclear Weapons\nParties: 190\nnon-parties: India, Israel, North Korea, Pakistan and South Sudan")
 
     # return figure
     return fig
