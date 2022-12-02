@@ -90,4 +90,4 @@ def get_plots():
     
     dummy(get_data()[1])
     
-    return [(key, fig, info_dict)]
+    return [(key, fig=dummy(get_data()[1]), info_dict)]
