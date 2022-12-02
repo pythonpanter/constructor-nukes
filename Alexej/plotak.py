@@ -69,8 +69,8 @@ def dummy(dataframe):
 
     # Change color background for the chart and the whole plot.
     fig.update_layout({
-        'plot_bgcolor': 'rgba(0, 0, 0, 0)',
-        'paper_bgcolor': 'rgba(0, 0, 0, 0)'
+        'plot_bgcolor': 'rgba(220, 220, 220, 0.82)',
+        'paper_bgcolor': 'rgba(220, 220, 220, 0.82)'
     })
 
     # Add title, and x and y labels with font size 18.
@@ -79,7 +79,7 @@ def dummy(dataframe):
     fig.update_layout(title_text="Nuclear Weapons Stockpile per Country per Year", title_yanchor = "top", legend_itemsizing="constant")
     
     # add vertical lines to mark special events
-    fig.add_hline(y=1982)
+    fig.add_vline(y=1982)
 
     # fig.show()
     # return figure
