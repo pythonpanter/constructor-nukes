@@ -80,8 +80,8 @@ def dummy(dataframe):
     
     # mark special events
     # fig.add_vline(x=1982, line_width=3, line_dash="dash", line_color="green", annotation_text="ThisIsAtestText")
-    fig.add_vrect(x0=1947, x1=1991, line_width=3, line_dash="solid", line_color="green", annotation_text='The Cold War')
-    fig.add_vline(x=1949, line_width=3, line_dash="dash", line_color="red", annotation_text="Soviet Union secretl first successful weapon test")
+    fig.add_vrect(x0=1947, x1=1991, line_width=3, line_dash="solid", line_color="green", annotation_text='The Cold War\n12 March 1947 - 26 December 1991')
+    fig.add_vline(x=1949, line_width=3, line_dash="dash", line_color="red", annotation_text="Soviet Union secretl first successful weapon test\n29 August 1949")
 
     # return figure
     return fig
