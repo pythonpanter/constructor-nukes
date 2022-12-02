@@ -82,14 +82,14 @@ def dummy(dataframe):
     # fig.add_vline(x=1982, line_width=3, line_dash="dash", line_color="green", annotation_text="ThisIsAtestText")
     fig.add_vrect(x0=1947, x1=1991, line_width=3, line_dash="solid", line_color="green", annotation_text='The Cold War')
     fig.add_vline(x=1949, line_width=3, line_dash="dash", line_color="red", annotation_text="Soviet Union secretl first successful weapon test")
-    fig.add_vline(x=1962, line_width=3, line_dash="line", line_color="yellow", annotation_text="The Cuban Missile Crisis")
-    fig.add_vline(x=1963, line_width=3, line_dash="dash", line_color="blue", annotation_text="Improved US-USSR relations")
-    fig.add_vline(x=1963, line_width=3, line_dash="line", line_color="grey", annotation_text="The Treaty on the Non-Proliferation of Nuclear Weapons")
-    fig.add_vline(x=1969, line_width=3, line_dash="dash", line_color="green", annotation_text="Détente")
-    fig.add_vline(x=1979, line_width=3, line_dash="line", line_color="red", annotation_text="Soviet invasion of Afghanistan")
-    fig.add_vline(x=1979, line_width=3, line_dash="dash", line_color="yelloow", annotation_text="Dissolution of the Soviet Union")
-    fig.add_vline(x=1998, line_width=3, line_dash="line", line_color="green", annotation_text="India test detonated five more nuclear weapons")
-    fig.add_vline(x=2006, line_width=3, line_dash="dash", line_color="red", annotation_text="North Korea announced first nuclear test")
+    fig.add_vline(x=1962, line_width=3, line_dash="dot", line_color="yellow", annotation_text="The Cuban Missile Crisis")
+    fig.add_vline(x=1963, line_width=3, line_dash="longdash", line_color="blue", annotation_text="Improved US-USSR relations")
+    fig.add_vline(x=1963, line_width=3, line_dash="dashdot", line_color="grey", annotation_text="The Treaty on the Non-Proliferation of Nuclear Weapons")
+    fig.add_vline(x=1969, line_width=3, line_dash="longdashdot", line_color="green", annotation_text="Détente")
+    fig.add_vline(x=1979, line_width=3, line_dash="dash", line_color="red", annotation_text="Soviet invasion of Afghanistan")
+    fig.add_vline(x=1979, line_width=3, line_dash="dot", line_color="yelloow", annotation_text="Dissolution of the Soviet Union")
+    fig.add_vline(x=1998, line_width=3, line_dash="longdash", line_color="green", annotation_text="India test detonated five more nuclear weapons")
+    fig.add_vline(x=2006, line_width=3, line_dash="dashdot", line_color="red", annotation_text="North Korea announced first nuclear test")
 
     # return figure
     return fig
