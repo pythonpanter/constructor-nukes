@@ -48,7 +48,8 @@ def get_data():
     overall_weapons_status_per_country = df_merged.groupby(['country_name', 'year'], as_index=False)['nuclear_weapons_status'].count()
     
     # Merge dataframes
-    overall_stockpiles_tests_merged_df = pd.merge(overall_weapons_stockpile_per_country, overall_weapons_tests_per_country, on=['country_name', 'year'])
+    # overall_stockpiles_tests_merged_df = pd.merge(overall_weapons_stockpile_per_country, overall_weapons_tests_per_country, on=['country_name', 'year'])
+    df_merged = pd.merge(overall_weapons_stockpile_per_country, overall_weapons_tests_per_country, on=['country_name', 'year'])
     
         # Return the merged dataframe
     return "@Alexej_Khalilzada", df_merged
