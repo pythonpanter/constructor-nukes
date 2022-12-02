@@ -22,9 +22,9 @@ usr= {'jvk':1,
 gwidth=750
 s=dict(Intro='Intro',
             jonas='Economic perspective',
-            alexej='Further details',
+            alexej='Nuclear armament II',
             kaib='Nuclear weapons tests',
-            kaih='Nuclear armament',
+            kaih='Nuclear armament  I',
             sum='Summary',
             Architecture='.')
 
@@ -122,7 +122,7 @@ elif slide == (s['Intro']):
     st.image(f'{kaipath}bikinibomb.jpg')
     st.caption('Showgirl Joy Healy smiles as she straddles a U.S. Air Force missile, wearing a bikini costume, at an American Federation of Labor Union show, in Los Angeles, California, in 1945 (Photo credit: Hulton Archive/Getty Images)')
 elif slide == (s['sum']):
-    
+
     st.subheader('Nuclear deterrence is still given up to this day, however it is difficult to predict the corresponding doctrines of the nuclear powers in the near future, given the current events.')
     st.subheader('No significant correlations between nuclear armament and national economy were found, however further research might be required.')
     st.subheader('Cold War had a massive influence on atomic weapons tests.')
