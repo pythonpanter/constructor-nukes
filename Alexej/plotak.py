@@ -88,6 +88,6 @@ def get_plots():
     lib = 'plotly_express'
     info_dict=dict(title=title, description=description, lib=lib)
     
-    dummy(get_data()[1])
+    fig = dummy(get_data()[1])
     
-    return [(key, fig=dummy(get_data()[1]), info_dict)]
+    return [(key, fig, info_dict)]
