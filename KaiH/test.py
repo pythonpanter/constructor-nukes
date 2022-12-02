@@ -11,6 +11,7 @@ dirs=['Jonas','Alexej','KaiB']
 for d in dirs:
     sys.path.insert(0, f'{dots}/{d}')
 import streamlit as st
+st.set_page_config(layout="wide")
 #import plotly.express as px
 
 # SET USR
@@ -62,7 +63,6 @@ elif slide == (s['alexej']):
         import_plots(plots)
 elif slide == (s['jonas']):
     if usr['jvk']:
-        st.set_page_config(layout="wide")
         import completejvk as pjvk
         plots=pjvk.get_plots()
         import_plots(plots)
