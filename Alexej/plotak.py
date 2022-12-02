@@ -82,14 +82,14 @@ def dummy(dataframe):
     # fig.add_vline(x=1982, line_width=3, line_dash="dash", line_color="green", annotation_text="ThisIsAtestText")
     fig.add_vrect(x0=1947, x1=1991, line_width=3, line_dash="dash", line_color="red")
     fig.add_vline(x=1949, line_width=3, line_dash="dash", line_color="green")
-    fig.add_vline(x=1962, line_width=3, line_dash="dash", line_color="red")
-    fig.add_vline(x=1963, line_width=3, line_dash="dash", line_color="red")
+    fig.add_vline(x=1962, line_width=3, line_dash="dash", line_color="green")
     fig.add_vline(x=1963, line_width=3, line_dash="dash", line_color="green")
-    fig.add_vline(x=1969, line_width=3, line_dash="dash", line_color="red")
+    fig.add_vline(x=1963, line_width=3, line_dash="dash", line_color="green")
+    fig.add_vline(x=1969, line_width=3, line_dash="dash", line_color="green")
     fig.add_vline(x=1979, line_width=3, line_dash="dash", line_color="green")
-    fig.add_vline(x=1979, line_width=3, line_dash="dash", line_color="red")
+    fig.add_vline(x=1979, line_width=3, line_dash="dash", line_color="green")
     fig.add_vline(x=1998, line_width=3, line_dash="dash", line_color="green")
-    fig.add_vline(x=2006, line_width=3, line_dash="dash", line_color="red")
+    fig.add_vline(x=2006, line_width=3, line_dash="dash", line_color="green")
 
     # return figure
     return fig
