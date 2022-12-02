@@ -44,6 +44,11 @@ def spacing():
     st.markdown('####')
     st.markdown('####')
     st.markdown('####')
+    st.markdown('####')
+    st.markdown('####')
+    st.markdown('####')
+    st.markdown('####')
+    st.markdown('####')
 
 def import_plots(plots):
     for i in range (0,len(plots)):
