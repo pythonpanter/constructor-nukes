@@ -120,5 +120,9 @@ elif slide == (s['Architecture']):
 elif slide == (s['Intro']):
     st.image(f'{kaipath}bikinibomb.jpg')
     st.caption('Showgirl Joy Healy smiles as she straddles a U.S. Air Force missile, wearing a bikini costume, at an American Federation of Labor Union show, in Los Angeles, California, in 1945 (Photo credit: Hulton Archive/Getty Images)')
-
-
+elif slide == (s['sum']):
+    spacing()
+    st.subheader('The Tsar Bomb (1961)')
+    st.subheader('jvk')
+    st.subheader('ak')
+    st.subheader('kb')
