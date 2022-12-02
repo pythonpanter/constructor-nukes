@@ -21,7 +21,7 @@ usr= {'jvk':1,
       'kh':1}
 gwidth=750
 s=dict(Intro='Intro',
-            jonas='Jonas Story',
+            jonas='Economic perspective',
             alexej='Alexejs  Story',
             kaib='Nuclear weapons tests since World  War II',
             kaih='Nuclear armament since World  War II',
@@ -31,7 +31,7 @@ s=dict(Intro='Intro',
 # STREAMLIT SIDEBAR
 st.sidebar.image(f'{kaipath}nuke.jpg')
 st.sidebar.title('NU*ES')
-slide = st.sidebar.radio('',[s['Intro'],s['kaih'],s['jonas'],s['alexej'],s['kaib'],s['sum'],s['Architecture']])
+slide = st.sidebar.radio('',[s['Intro'],s['kaih'],s['alexej'],s['kaib'],s['jonas'],s['sum'],s['Architecture']])
 st.header(slide)
 if sys.platform=='win32':
     st.sidebar.title('***LOCAL INSTANCE***')
