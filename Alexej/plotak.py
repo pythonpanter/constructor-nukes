@@ -38,6 +38,7 @@ def get_plots():
     lib = 'plotly_express'
     info_dict=dict(title=title, description=description, lib=lib)
     
-    dummy(overall_stockpiles_tests_merged_df)
+    # dummy(overall_stockpiles_tests_merged_df)
+    dummy(df_merged)
     
     return [(key, fig, info_dict)]
