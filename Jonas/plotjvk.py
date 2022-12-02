@@ -7,7 +7,8 @@ Created on Thu Dec  1 14:26:00 2022
 """
 
 def get_plots():
-    quit()
+    return [[None,None,None]]
+    # quit()
 
 # import pandas as pd
 # import plotly.express as px
@@ -29,7 +30,7 @@ def get_plots():
 # import numpy as np
 
 # # @st.cache
-# def get_plots(string=ejvk.eval_frame()[0],df=ejvk.eval_frame()[1],info=ejvk.eval_frame()[2]):
+# def get_Myplots(string=ejvk.eval_frame()[0],df=ejvk.eval_frame()[1],info=ejvk.eval_frame()[2]):
 #     # df[['year']]=df[['year']].astype('float64', raise_on_error = False)
 #     empty=df.head(0)
 #     print(empty)
