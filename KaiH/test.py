@@ -97,7 +97,7 @@ elif slide == (s['kaih']):
         #tsar image destruction
         spacing()
 
-        st.subheader('The Tsar Bomb')
+        st.subheader('The Tsar Bomb (1961)')
         st.image(f'{kaipath}tsar.jpg', width=gwidth)
         st.caption('The Tsar Bomb\'s (50,000-60,000 kts) fireball, about 8km wide at its maximum reached nearly 10.5 km in the sky. (https://wikipedia.de)')
 
