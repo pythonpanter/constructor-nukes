@@ -71,6 +71,7 @@ if slide==(s['kaib']):
         import plotkb as pkb
         plots=pkb.get_plots()
         #import_plots(plots)
+        index=0
         st.header(plots[index][2]['title'])
         st.subheader(plots[index][2]['description'])
         if (plots[index][2]['lib'] == 'plotly_go') or (plots[index][2]['lib'] == 'plotly_chart') or (
