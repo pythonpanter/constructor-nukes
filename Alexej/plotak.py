@@ -87,7 +87,7 @@ def dummy(dataframe):
     fig.add_vline(x=1963, line_width=3, line_dash="dashdot", line_color="grey")
     fig.add_vline(x=1969, line_width=3, line_dash="longdashdot", line_color="green")
     fig.add_vline(x=1979, line_width=3, line_dash="dash", line_color="red")
-    fig.add_vline(x=1979, line_width=3, line_dash="dot", line_color="yelloow")
+    fig.add_vline(x=1979, line_width=3, line_dash="dot", line_color="yellow")
     fig.add_vline(x=1998, line_width=3, line_dash="longdash", line_color="green")
     fig.add_vline(x=2006, line_width=3, line_dash="dashdot", line_color="red")
 
