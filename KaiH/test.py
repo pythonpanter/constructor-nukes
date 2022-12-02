@@ -22,9 +22,9 @@ usr= {'jvk':1,
 gwidth=750
 s=dict(Intro='Intro',
             jonas='Economic perspective',
-            alexej='Alexejs  Story',
-            kaib='Nuclear weapons tests since World  War II',
-            kaih='Nuclear armament since World  War II',
+            alexej='Further details,
+            kaib='Nuclear weapons tests',
+            kaih='Nuclear armament',
             sum='Summary',
             Architecture='.')
 
