@@ -183,7 +183,8 @@ def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
         
     df['year']=pd.to_numeric(df['year'])
     
-    filtered = df[df['year']>1985]
+    # filtered = df[df['year']>1985]
+    filtered = df[df['year']>1980]
     for inactive in inactives:
         filtered2 = filtered[filtered['country_name'] !=inactive]
     for inactive in inactives:
@@ -217,16 +218,16 @@ def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
                     strcols=["dummy2","dummy3","dummy4"]
                     locdf2['text']= dummydf[strcols].apply(lambda row: ''.join(row.values.astype(str)), axis=1)
                     fig = go.Figure()
-                    countries=list(locdf2['country_name'].unique())
+                    countries=sorted(list(locdf2['country_name'].unique()))
                     title='Relation between '+pair[0]+" and "+pair[1]+" (plot "+str(len(retval)+1)+", dataset "+str(dfind+1)+")"
                     for cntryind in range(len(countries)):
                         cntry=countries[cntryind]
                         markerindex= cntryind % len(MySymbs)
-                        df_s = locdf2[locdf2['country_name']==cntry]
+                        df_s = locdf2[locdf2['country_name']==cntry].sort_values(["year"])
                         fig.add_trace(
                             go.Scatter(
                                 x=df_s[pair[0]], y=df_s[pair[1]], 
-                                mode="markers",
+                                mode="markers+lines",
                                 name=cntry.capitalize(),
                                 text=df_s['country_name'],
                                 marker={
@@ -261,14 +262,15 @@ def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
                     retval.append((key,fig,info_dict))
     # list of not-boring plots:
         
-    showplots=[27, 26, 15, 5, ]
-    showplots=[show -1 for show in showplots]
-    # reordered=list(showplots)
-    retval2=[retval[i] for i in showplots]
-    for i in range(len(retval)):
-        if i not in showplots:
-            retval2.append(retval[i]) 
-    return retval2[:6]
+    # showplots=[27, 25, 15, 5, ]
+    # showplots=[show -1 for show in showplots]
+    # # reordered=list(showplots)
+    # retval2=[retval[i] for i in showplots]
+    # for i in range(len(retval)):
+    #     if i not in showplots:
+    #         retval2.append(retval[i]) 
+    # return retval2[:6]
+    return retval[:6]
 
 myplots=get_plots()
 
