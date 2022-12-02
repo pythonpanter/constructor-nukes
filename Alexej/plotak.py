@@ -69,8 +69,8 @@ def dummy(dataframe):
 
     # Change color background for the chart and the whole plot.
     fig.update_layout({
-        'plot_bgcolor': 'rgba(255, 255, 255, 255)',
-        'paper_bgcolor': 'rgba(255, 255, 255, 255)'
+        'plot_bgcolor': 'rgba(0, 0, 0, 0)',
+        'paper_bgcolor': 'rgba(0, 0, 0, 0)'
     })
 
     # Add title, and x and y labels with font size 18.
@@ -78,6 +78,7 @@ def dummy(dataframe):
     fig.update_yaxes(title_text='Nuclear Weapons Stockpile', title_font = {"size": 18})
     fig.update_layout(title_text="Nuclear Weapons Stockpile per Country per Year", title_yanchor = "top", legend_itemsizing="constant")
 
+    # fig.show()
     # return figure
     return fig
 
@@ -89,5 +90,9 @@ def get_plots():
     info_dict=dict(title=title, description=description, lib=lib)
     
     fig = dummy(get_data()[1])
-    
+        
     return [(key, fig, info_dict)]
+
+# get_plots()
+# fig = dummy(get_data()[1])
+# fig.show()
