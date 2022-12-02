@@ -99,7 +99,7 @@ elif slide == (s['kaih']):
         st.subheader('The Trinity Test in 1945')
         st.image(f'{kaipath}trinity.jpg', width=gwidth)
         st.caption('Trinity: Test of the first nuclear Weapon in New Mexico, US 16.07.45 (Picture Credit: https://www.atomicarchive.com)')
-
+        spacing()
 
         show_plot(plots, 0)
         st.caption('Amid 1945, the United States became the first nuclear power by building "little-boy" and "fat-man", the first operational atomic bombs (15-20 kts), later dropped on Hiroshima and Nagasaki.')
