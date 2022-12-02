@@ -23,7 +23,7 @@ gwidth=750
 s=dict(Intro='Intro',
             jonas='Jonas Story',
             alexej='Alexejs  Story',
-            kaib='Kai Bs Story',
+            kaib='Nuclear weapons tests since World  War II',
             kaih='Nuclear armament since World  War II',
             sum='Summary',
             Architecture='.')
@@ -70,7 +70,12 @@ if slide==(s['kaib']):
     if usr['kb']:
         import plotkb as pkb
         plots=pkb.get_plots()
-        import_plots(plots)
+        #import_plots(plots)
+        st.header(plots[index][2]['title'])
+        st.subheader(plots[index][2]['description'])
+        if (plots[index][2]['lib'] == 'plotly_go') or (plots[index][2]['lib'] == 'plotly_chart') or (
+                plots[index][2]['lib'] == 'plotly_express'):
+            st.plotly_chart(plots[index][1])
 elif slide == (s['alexej']):
     if usr['ak']:
         import plotak as pak
