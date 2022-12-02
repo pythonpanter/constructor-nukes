@@ -77,6 +77,9 @@ def dummy(dataframe):
     fig.update_xaxes(title_text='Year', title_font = {"size": 18})
     fig.update_yaxes(title_text='Nuclear Weapons Stockpile', title_font = {"size": 18})
     fig.update_layout(title_text="Nuclear Weapons Stockpile per Country per Year", title_yanchor = "top", legend_itemsizing="constant")
+    
+    # add vertical lines to mark special events
+    fig.add_hline(y=1982)
 
     # fig.show()
     # return figure
