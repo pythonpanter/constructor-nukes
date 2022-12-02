@@ -43,20 +43,19 @@ def get_data():
                          'country_name', 'year']), df_tests, on=['country_name', 'year'])
     
     
-    ### Group by 'country_name' and 'year'
+    # Group by 'country_name' and 'year'
     overall_weapons_stockpile_per_country = df_merged.groupby(['country_name', 'year'], as_index=False)['nuclear_weapons_stockpile'].sum()
     overall_weapons_tests_per_country = df_merged.groupby(['country_name', 'year'], as_index=False)['nuclear_weapons_tests'].count()
     overall_weapons_status_per_country = df_merged.groupby(['country_name', 'year'], as_index=False)['nuclear_weapons_status'].count()
     
     # Merge dataframes
-    # overall_stockpiles_tests_merged_df = pd.merge(overall_weapons_stockpile_per_country, overall_weapons_tests_per_country, on=['country_name', 'year'])
     df_merged = pd.merge(overall_weapons_stockpile_per_country, overall_weapons_tests_per_country, on=['country_name', 'year'])
     
         # Return the merged dataframe
     return "@Alexej_Khalilzada", df_merged
 
 
-""" def dummy(dataframe):
+def dummy(dataframe):
     ##### Plot
     # 'year' in the x-axis and 'nuclear_weapons_stockpile' in the y-axis.
     fig = px.line(dataframe, x="year", y="nuclear_weapons_stockpile", color="country_name")
@@ -91,6 +90,3 @@ def get_plots():
     dummy(get_data([1]))
     
     return [(key, fig, info_dict)]
- """
- 
- 
