@@ -78,8 +78,15 @@ def dummy(dataframe):
     fig.update_yaxes(title_text='Nuclear Weapons Stockpile', title_font = {"size": 18})
     fig.update_layout(title_text="Nuclear Weapons Stockpile per Country per Year", title_yanchor = "top", legend_itemsizing="constant")
     
-    # add vertical lines to mark special events
-    fig.add_vline(x=1982, line_width=3, line_dash="dash", line_color="green", annotation_text="ThisIsAtestText")
+    # mark special events
+    # fig.add_vline(x=1982, line_width=3, line_dash="dash", line_color="green", annotation_text="ThisIsAtestText")
+    fig.add_vrect(x0=1947, x1=1991, line_width=3, line_dash="solid", line_color="red", annotation_text="The Cold War is a term commonly used to refer to a period \
+                                                                                                        of geopolitical tension between the United States and the \
+                                                                                                        Soviet Union and their respective allies, the Western Bloc \
+                                                                                                        and the Eastern Bloc. Historians do not fully agree on its \
+                                                                                                        starting and ending points, but the period is generally \
+                                                                                                        considered to span from the announcement of the Truman Doctrine \
+                                                                                                        on 12 March 1947 to the dissolution of the Soviet Union on 26 December 1991.")
 
     # return figure
     return fig
