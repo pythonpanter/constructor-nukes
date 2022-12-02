@@ -24,7 +24,7 @@ s=dict(Intro='Intro',
             jonas='Jonas Story',
             alexej='Alexejs  Story',
             kaib='Kai Bs Story',
-            kaih='Nuclear armament since WW2',
+            kaih='Nuclear armament since World  War II',
             sum='Summary',
             Architecture='.')
 
@@ -38,17 +38,27 @@ if sys.platform=='win32':
 
 # STREAMLIT MAINPAGE
 #Helper
+def spacing():
+    st.markdown('####')
+    st.markdown('####')
+    st.markdown('####')
+    st.markdown('####')
+    st.markdown('####')
+
 def import_plots(plots):
     for i in range (0,len(plots)):
          show_plot(plots,i)
 
 def show_plot(plots,index):
+    spacing()
     st.header(plots[index][2]['title'])
     st.subheader(plots[index][2]['description'])
     if (plots[index][2]['lib'] == 'plotly_go') or (plots[index][2]['lib'] == 'plotly_chart')or (plots[index][2]['lib'] == 'plotly_express'):
         st.plotly_chart(plots[index][1])
   #  elif (plots[index][2]['lib'] == 'plotly_express'):
   #      st.plotly_chart(plots[index][1])
+
+
 
 #PageGen
 if slide==(s['kaib']):
@@ -70,22 +80,40 @@ elif slide == (s['kaih']):
     if usr['kh']:
         import plotkh as pkh
         plots=pkh.get_plots()
-        st.image(f'{kaipath}trinity.jpg', width=gwidth)
+
         #trinity facts
+        st.subheader('The Trinity Test')
+        st.image(f'{kaipath}trinity.jpg', width=gwidth)
         st.caption('Trinity: Test of the first nuclear Weapon in New Mexico, US 16.07.45 (Picture Credit: https://www.atomicarchive.com)')
+
+
         show_plot(plots, 0)
+        st.caption('Amid 1945, the United States built "little-boy" and "fat-man", the first operational atomomic bombs (15-20 kts).')
         #tsar image destruction
+        spacing()
+
+        st.subheader('The Tsar Bomb')
         st.image(f'{kaipath}tsar.jpg', width=gwidth)
-        st.caption('The Tsar Bomba\'s fireball, about 8km wide at its maximum reached nearly 10.5 km in the sky. (https://wikipedia.de)')
+        st.caption('The Tsar Bomb\'s (50,000-60,000 kts) fireball, about 8km wide at its maximum reached nearly 10.5 km in the sky. (https://wikipedia.de)')
+
+
         show_plot(plots,1)
+        st.caption('During Cold War, nuclear stockpile rose extremely, allowing severe demolition of the entire planet for several times with the arsenal of a single country.')
+        spacing()
+
+        st.subheader('NEW Start')
         st.image(f'{kaipath}newstart.jpg', width=gwidth)
         st.caption('Then-Vice President Joe Biden and Russian Prime Minister Vladimir Putin in Moscow, Russia, in 2012. | AP Photo/Alexander Zemlianichenko  (https://www.politico.com)')
+
+
         show_plot(plots,2)
+        st.caption('In 2022, the amount of nuclear weapons is severely smaller, than at the peak of the cold war. However, since warheads are much more powerful these days, nuclear deterrence is still given. Interestingly, the nuclear armament mainly takes place in the northern hemisphere of the planet.  ')
+
 elif slide == (s['Architecture']):
     st.image(f'{kaipath}architecture.jpg')
     st.caption('Architecture of underlying framework for nu*de data analysis (WIP)')
 elif slide == (s['Intro']):
     st.image(f'{kaipath}bikinibomb.jpg')
-    st.caption('Showgirl Joy Healy smiles as she straddles a U.S. Air Force missile, wearing a bikini costume, at an American Federation of Labor Union show, in Los Angeles, California, in 1945  (Photo credit: Hulton Archive/Getty Images)')
+    st.caption('Showgirl Joy Healy smiles as she straddles a U.S. Air Force missile, wearing a bikini costume, at an American Federation of Labor Union show, in Los Angeles, California, in 1945 (Photo credit: Hulton Archive/Getty Images)')
 
 
