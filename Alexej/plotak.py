@@ -2,10 +2,10 @@
 import sys
 if sys.platform=='win32':
     dots='..'
-    kaipath=''
+    alexejpath=''
 else:
     dots='.'
-    kaipath='./KaiH/'
+    alexejpath='./Alexej/'
 
 dirs=['Jonas','KaiH','KaiB']
 for d in dirs:
@@ -37,10 +37,6 @@ def dummy(dataframe):
 
     # return figure
     return fig
-
-# weapons_tests_df = dummy_df.groupby(['country_name', 'year'], as_index=False)['nuclear_weapons_stockpile'].get_value()
-# print('\n\n*************************************************************************** Weapons Tests DF *****************************\n')
-# print(weapons_tests_df.tail(60))
 
 def get_plots():
     title='Nuclear Weapons Stockpile per Country per Year'
