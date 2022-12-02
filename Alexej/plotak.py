@@ -1,4 +1,4 @@
-# SET FOLDER ENVIRONMENT
+""" # SET FOLDER ENVIRONMENT
 import sys
 if sys.platform=='win32':
     dots='..'
@@ -9,7 +9,7 @@ else:
 
 dirs=['Jonas','KaiH','KaiB']
 for d in dirs:
-    sys.path.insert(0, f'{dots}/{d}')
+    sys.path.insert(0, f'{dots}/{d}') """
 
 import plotly.express as px
 

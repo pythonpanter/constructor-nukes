@@ -5,7 +5,7 @@
 #
 # ---> Conclusion: The columns 'country_name' and 'year' are shared between the three datasets
 
-# SET FOLDER ENVIRONMENT
+""" # SET FOLDER ENVIRONMENT
 import sys
 if sys.platform=='win32':
     dots='..'
@@ -16,7 +16,7 @@ else:
 
 dirs=['Jonas','KaiH','KaiB']
 for d in dirs:
-    sys.path.insert(0, f'{dots}/{d}')
+    sys.path.insert(0, f'{dots}/{d}') """
 
 ###### Import modules
 import pandas as pd
