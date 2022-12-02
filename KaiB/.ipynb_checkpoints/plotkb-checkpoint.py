@@ -63,7 +63,7 @@ def kbplot():
                 #ticklabelstep=20,
                 dtick=20,
                 range=[-5,195],
-                #showgrid=False,
+                showgrid=False,
                 griddash="dash",
                 #ticklabelstep=20,
                 tickson="boundaries",
@@ -118,7 +118,7 @@ def kbplot():
         ),
 
         fig3.add_scatter(
-            x=[1946],
+            x=[1945],
             y=[10],
             name="1945",
             showlegend=False,
