@@ -97,7 +97,7 @@ elif slide == (s['kaih']):
         #tsar image destruction
         spacing()
 
-        st.subheader('The Tsar Bomb (1961)')
+        st.subheader('The Tsar Bomb (1961), peak of the race for stronger weapons')
         st.image(f'{kaipath}tsar.jpg', width=gwidth)
         st.caption('The Tsar Bomb\'s (50,000-60,000 kts) fireball, about 8km wide at its maximum reached nearly 10.5 km in the sky. (https://wikipedia.de)')
 
@@ -106,13 +106,13 @@ elif slide == (s['kaih']):
         st.caption('During Cold War, nuclear stockpile rose extremely, allowing severe demolition of the entire planet for several times with the arsenal of a single country.')
         spacing()
 
-        st.subheader('NEW Start')
+        st.subheader('NEW Start, the latest big nuclear arms reduction treaty')
         st.image(f'{kaipath}newstart.jpg', width=gwidth)
         st.caption('Then-Vice President Joe Biden and Russian Prime Minister Vladimir Putin in Moscow, Russia, in 2012. | AP Photo/Alexander Zemlianichenko  (https://www.politico.com)')
 
 
         show_plot(plots,2)
-        st.caption('In 2022, the amount of nuclear weapons is severely smaller, than at the peak of the cold war. However, since warheads are much more powerful these days, nuclear deterrence is still given. Interestingly, the nuclear armament mainly takes place in the northern hemisphere of the planet.  ')
+        st.caption('In 2022, the amount of nuclear weapons is severely smaller, than at the peak of the cold war. However, since warheads are much more powerful these days, nuclear deterrence is still given. Interestingly, the nuclear armament mainly takes place in the northern hemisphere of the planet. Current events remind of the volatiliy of the well known concept of mutually assured destruction (MAD)  ')
 
 elif slide == (s['Architecture']):
     st.image(f'{kaipath}architecture.jpg')
