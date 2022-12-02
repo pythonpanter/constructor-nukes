@@ -87,9 +87,9 @@ def dummy(dataframe):
                                                                                                         starting and ending points, but the period is generally \
                                                                                                         considered to span from the announcement of the Truman Doctrine \
                                                                                                         on 12 March 1947 to the dissolution of the Soviet Union on 26 December 1991.')
-    fig.add_vline(x=1949, line_width=3, line_dash="dash", line_color="red", annotation_text='the Soviet Union secretly conducted its first successful weapon test \
+    fig.add_vline(x=1949, line_width=3, line_dash="dash", line_color="red", annotation_text="the Soviet Union secretly conducted its first successful weapon test \
                                                                                             (First Lightning, based on the American "Fat Man" design) at the Semipalatinsk-21 \
-                                                                                            in Kazakhstan. => ending the United States' monopoly on nuclear weapons.')
+                                                                                            in Kazakhstan. => ending the United States' monopoly on nuclear weapons.")
 
     # return figure
     return fig
