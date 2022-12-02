@@ -55,7 +55,8 @@ def import_plots(plots):
          show_plot(plots,i)
 
 def show_plot(plots,index):
-    spacing()
+    if index!=0:
+        spacing()
     st.header(plots[index][2]['title'])
     st.subheader(plots[index][2]['description'])
     if (plots[index][2]['lib'] == 'plotly_go') or (plots[index][2]['lib'] == 'plotly_chart')or (plots[index][2]['lib'] == 'plotly_express'):
@@ -70,13 +71,15 @@ if slide==(s['kaib']):
     if usr['kb']:
         import plotkb as pkb
         plots=pkb.get_plots()
-        #import_plots(plots)
+        import_plots(plots)
+        """
         index=0
         st.header(plots[index][2]['title'])
         st.subheader(plots[index][2]['description'])
         if (plots[index][2]['lib'] == 'plotly_go') or (plots[index][2]['lib'] == 'plotly_chart') or (
                 plots[index][2]['lib'] == 'plotly_express'):
             st.plotly_chart(plots[index][1])
+            """
 elif slide == (s['alexej']):
     if usr['ak']:
         import plotak as pak
@@ -105,7 +108,7 @@ elif slide == (s['kaih']):
 
         st.subheader('The Tsar Bomb in 1961, peak of the race for stronger weapons')
         st.image(f'{kaipath}tsar.jpg', width=gwidth)
-        st.caption('The Tsar Bomb\'s (50,000-60,000 kts) fireball, about 8km wide at its maximum reached nearly 10.5 km in the sky. (https://wikipedia.de)')
+        st.caption('The Tsar Bomb\'s (50,000-60,000 kts) fireball, about 8 km wide at its maximum reached nearly 10.5 km in the sky. (https://wikipedia.de)')
 
 
         show_plot(plots,1)
