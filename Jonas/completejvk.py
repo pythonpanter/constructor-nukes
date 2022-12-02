@@ -240,10 +240,10 @@ def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
                         )
                     fig.update_layout(
                         title=title,
-                        xaxis={"title": {"text": pair[0], "font_size": 18}}, # Note you can specify the size using font_size key
-                        yaxis={"title": {"text": pair[1], "font": {"size": 18}}}, # Or you can create a dictionnary if you want to add more font properties
-                        height=1600,
-                        width=2000,
+                        xaxis={"title": {"text": pair[0], "font_size": 30}}, # Note you can specify the size using font_size key
+                        yaxis={"title": {"text": pair[1], "font": {"size": 30}}}, # Or you can create a dictionnary if you want to add more font properties
+                        height=1200,
+                        width=1600,
                         )
                     description =pair[1] +" over "+  pair[0]
                     if dfind==0:
