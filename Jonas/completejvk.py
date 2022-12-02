@@ -167,7 +167,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 
 
-
+@st.cache
 def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
     df['Intercept'] = 1
     MySymbs=["circle", "square", "diamond", "cross", "x", "triangle-up", "triangle-left", "pentagon",
@@ -236,9 +236,30 @@ def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
                                     "size": df_s['Intercept'], 
                                     "sizeref": max(df_s['Intercept'])*0.01
                                 },
+                                line={
+                                    "dash":'dashdot',
+                                    # "width":100,
+                                },
                                 hovertext=df_s['text'],
                             )
                         )
+                        # fig.add_trace(
+                        #     go.Cone(
+                        #         x=df_s[pair[0]], y=df_s[pair[1]],
+                                
+                        #         showlegend=False,
+                        #         showscale=False,                                    # mode="lines",
+                        #         # name=cntry.capitalize(),
+                        #         # text=df_s['country_name'],
+                        #         # marker={
+                        #         #     # "symbol": MySymbs[markerindex],
+                        #         #     "sizemode": "area", 
+                        #         #     "size": df_s['Intercept'], 
+                        #         #     "sizeref": max(df_s['Intercept'])*0.01
+                        #         # },
+                        #         # hovertext=df_s['text'],
+                        #     )
+                        # )
                     fig.update_layout(
                         title=title,
                         xaxis={"title": {"text": pair[0], "font_size": 30}}, # Note you can specify the size using font_size key
@@ -262,24 +283,24 @@ def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
                     retval.append((key,fig,info_dict))
     # list of not-boring plots:
         
-    showplots=[27, 25, 13, 5, ]
+    showplots=[25, 27, 13, 5, ]
     showplots=[show -1 for show in showplots]
     # reordered=list(showplots)
     retval2=[retval[i] for i in showplots]
     for i in range(len(retval)):
         if i not in showplots:
             retval2.append(retval[i]) 
-    return retval2[:6]
+    return retval2#[:6]
     # return retval[:6]
 
-myplots=get_plots()
+# myplots=get_plots()
 
 
-# for plot in myplots[:6]:
-for plot in myplots:
-    print(plot[2]["description"])
-    plot[1].show()
-print(len(get_plots()))
+# # for plot in myplots[:6]:
+# for plot in myplots:
+#     print(plot[2]["description"])
+#     plot[1].show()
+# print(len(get_plots()))
 
 # def get_plots():
 #     quit()
