@@ -82,6 +82,8 @@ def dummy(dataframe):
     # fig.add_vline(x=1982, line_width=3, line_dash="dash", line_color="green", annotation_text="ThisIsAtestText")
     fig.add_vrect(x0=1947, x1=1991, line_width=3, line_dash="solid", line_color="green", annotation_text='The Cold War\n12 March 1947 - 26 December 1991')
     fig.add_vline(x=1949, line_width=3, line_dash="dash", line_color="red", annotation_text="Soviet Union secretl first successful weapon test\n29 August 1949")
+    fig.add_vline(x=1962, line_width=3, line_dash="line", line_color="yellow", annotation_text="The Cuban Missile Crisis\n16–29 October 1962")
+    fig.add_vline(x=1963, line_width=3, line_dash="dash", line_color="blue", annotation_text="Improved US-USSR relations\n1963")
 
     # return figure
     return fig
