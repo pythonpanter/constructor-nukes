@@ -28,7 +28,7 @@ codepath=f"{kaipath}country_codes.csv"
 
 dfcodes=pd.read_csv(codepath)
 #df=dfraw
-
+gwidth=800
 
 def splot(cyear,lat,long,roll):
     df = dfraw[dfraw.year==cyear]
@@ -80,7 +80,7 @@ def splot(cyear,lat,long,roll):
     )
 
     #fig.update_layout(title_text='World wide web usage,')
-    fig.update_layout(margin=dict(l=50, r=50, t=50, b=50),height=600,  autosize=True,
+    fig.update_layout(margin=dict(l=50, r=50, t=50, b=50),width=gwidth,  autosize=True,
                       plot_bgcolor="#010008",
                       paper_bgcolor="#010008",
                       font_color="white",
