@@ -70,10 +70,15 @@ elif slide == (s['kaih']):
     if usr['kh']:
         import plotkh as pkh
         plots=pkh.get_plots()
-        st.image(f'{kaipath}trinity.jpg')
+        st.image(f'{kaipath}trinity.jpg', width=800)
+        #trinity facts
         st.caption('Trinity: Test of the first nuclear Weapon in New Mexico, US 16.07.45 (Picture Credit: https://www.atomicarchive.com)')
-        show_plot(plots,0)
+        show_plot(plots, 0)
+        #tsar image destruction
+        st.image(f'{kaipath}tsar.jpg', width=800)
+        st.caption('The Tsar Bomba\'s fireball, about 8km (5.0mi) wide at its maximum, was prevented from touching the ground by the shock wave, but reached nearly 10.5 km (6.5 mi) in the sky – the altitude of the deploying bomber (wikipedia.de)')
         show_plot(plots,1)
+        #Salt start
         show_plot(plots,2)
 elif slide == (s['Architecture']):
     st.image(f'{kaipath}architecture.jpg')
