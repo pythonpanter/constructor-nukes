@@ -124,6 +124,6 @@ elif slide == (s['Intro']):
 elif slide == (s['sum']):
 
     st.subheader('Nuclear deterrence is still given up to this day, however it is difficult to predict the corresponding doctrines of the nuclear powers in the near future, given the current events.')
-    st.subheader('No strong correlations were found, however further research might be required.')
+    st.subheader('No non-trivial correlations were found, however further research might be required.')
     st.subheader('Cold War had a massive influence on atomic weapons tests.')
     st.subheader('')
