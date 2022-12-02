@@ -199,7 +199,7 @@ def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
         for dfind in range(len(dfs)):
             locdf=pd.DataFrame(dfs[dfind],copy=True)
             numeric_df = filtered.filter(items=[pair[0], pair[1]]).dropna()
-            corr = numeric_df.corr(numeric_only=True)
+            corr = numeric_df.corr()
             npcorr=corr.to_numpy()
             if npcorr.size==4 :
                 boo=np.isfinite(npcorr).all() and (not np.isnan(npcorr).any())
