@@ -41,6 +41,15 @@ def get_data():
     df_merged = pd.merge(pd.merge(df_proliferation, df_stockpiles, on=[
                          'country_name', 'year']), df_tests, on=['country_name', 'year'])
     
+    
+    ### Group by 'country_name' and 'year'
+    overall_weapons_stockpile_per_country = df_merged.groupby(['country_name', 'year'], as_index=False)['nuclear_weapons_stockpile'].sum()
+    overall_weapons_tests_per_country = df_merged.groupby(['country_name', 'year'], as_index=False)['nuclear_weapons_tests'].count()
+    overall_weapons_status_per_country = df_merged.groupby(['country_name', 'year'], as_index=False)['nuclear_weapons_status'].count()
+    
+    # Merge dataframes
+    overall_stockpiles_tests_merged_df = pd.merge(overall_weapons_stockpile_per_country, overall_weapons_tests_per_country, on=['country_name', 'year'])
+    
         # Return the merged dataframe
     return "@Alexej_Khalilzada", df_merged
 
@@ -48,7 +57,7 @@ def get_data():
 
 get_data() # let's grab the available data
 
-merged_df = get_data()
+""" merged_df = get_data()
 author = merged_df[0]
 merged_df = merged_df[1]
 
@@ -76,7 +85,7 @@ print(overall_weapons_status_per_country.tail(60))
 overall_stockpiles_tests_merged_df = pd.merge(overall_weapons_stockpile_per_country, overall_weapons_tests_per_country, on=['country_name', 'year'])
 print('\n\n****************************************************************************************************************')
 print('****************************************************************************************************************\n')
-print(overall_stockpiles_tests_merged_df.tail(60))
+print(overall_stockpiles_tests_merged_df.tail(60)) """
 
 """ def dummy(dataframe):
     ##### Plot
