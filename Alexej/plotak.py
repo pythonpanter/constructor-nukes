@@ -81,7 +81,7 @@ def dummy(dataframe):
     # mark special events
     # fig.add_vline(x=1982, line_width=3, line_dash="dash", line_color="green", annotation_text="ThisIsAtestText")
     fig.add_vrect(x0=1947, x1=1991, line_width=3, line_dash="solid", line_color="green", annotation_text='The Cold War')
-    fig.add_vline(x=1949, line_width=3, line_dash="dash", line_color="red", annotation_text="Soviet Union secretly conducted its first successful weapon test (First Lightning, based on the American 'Fat Man' design) at the Semipalatinsk-21 in Kazakhstan. => ending the United States' monopoly on nuclear weapons.")
+    fig.add_vline(x=1949, line_width=3, line_dash="dash", line_color="red", annotation_text="Soviet Union secretl first successful weapon test")
 
     # return figure
     return fig
