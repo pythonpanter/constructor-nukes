@@ -57,7 +57,6 @@ def get_dataOLD():
     dictkeyadd(tests_states)
     dictkeyadd(proliferation)
     lrge_df=pd.DataFrame.from_dict(yearcontrdict, orient='index').fillna(0).reset_index(drop=True)
-    # print(lrge_df.head(2))
     return "Jonas1",lrge_df
 
 
@@ -133,13 +132,6 @@ from pandas.api.types import is_numeric_dtype
 
 @st.cache
 def eval_frame(datahandle="Jonas1", df=get_data()[1]):
-    # quit()
-    # df["nuclear"]=False
-    # for country in list(df["country_name"].unique()):
-    #     locdf=df[df["country_name"]==country]
-    #     # locdf["nuclear"]=(locdf["nuclear_weapons_pursuit"].max()>0)
-    #     df[df["country_name"]==country]["nuclear"]=(locdf["nuclear_weapons_pursuit"].max()>0)
-    # df["nuclear"]=df[["nuclear"]].fillna(value=False)
     print("Evaluating "+datahandle)
     cols=list(df.columns.values)
     isnumeric=np.zeros(len(cols))
@@ -165,35 +157,23 @@ def eval_frame(datahandle="Jonas1", df=get_data()[1]):
             iscategorical[colind]=True
         else:
             iscategorical[colind]=False
-    # isnormal=np.zeros(len(cols))
-    # for colind in range(len(cols)):
-    #     if isnumeric2[colind] and not iscategorical[colind]:
-    #         locseries=df[cols[colind]].dropna()
-    #         test_stat, p_value =shapiro(locseries)
-    #         if p_value>0.05:
-    #             isnormal[colind]=True
-    #         else:
-    #             isnormal[colind]=False
-    #     else:
-    #         pass
     dummydict={"title":'None',
         "description" : 'None',
         "key":'None',
         "lib" : 'None'}
 
-    # print(list(df.columns.values))
     return "eval JvK", df, dummydict
 import plotly.express as px
+import plotly.graph_objects as go
 
 def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
-    # df[['year']]=df[['year']].astype('float64', raise_on_error = False)
+    df['Intercept'] = 1
     empty=df.head(0)
     print(empty)
     cols=list(df.columns.values)
     inactives=[]
     for country in list(df["country_name"].unique()):
         locdf=df[df["country_name"]==country]
-        # locdf["nuclear"]=(locdf["nuclear_weapons_pursuit"].max()>0)
         if not (locdf["nuclear_weapons_pursuit"].max()>0):
             inactives.append(country)
         
@@ -210,29 +190,76 @@ def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
            pairs.append([cols[ind1],cols[ind2]])
     for pair in pairs:
         for dfind in range(len(dfs)):
-            locdf=dfs[dfind]
-            # print(list(filtered.columns.values))
+            locdf=pd.DataFrame(dfs[dfind],copy=True)
             numeric_df = filtered.filter(items=[pair[0], pair[1]]).dropna()
-            # print(numeric_df)
             corr = numeric_df.corr()
-            # print("")
-            # print(corr.to_numpy())
-            # quit()
             npcorr=corr.to_numpy()
+            # print(type(locdf['year'].astype(str)))
+            # print(locdf[['text']].head(2))
+            # quit()
+            # locdf['text']=("country: "+locdf['country_name'].astype(str)).str.cat(
+            # ("\n year" +locdf['year'].astype(str)),
+            # ("\n "+str(pair[0]) +locdf[pair[0]].astype(str)),
+            # ("\n "+str(pair[1]) +locdf[pair[1]].astype(str)))
             if npcorr.size==4 :
                 boo=np.isfinite(npcorr).all() and (not np.isnan(npcorr).any())
-                # print(type(npcorr[1][1]))
                 boo=boo and npcorr[1][1]<1.1 and npcorr[0][1]<1.1 and npcorr[0][0]<1.1
                 boo=boo and npcorr[1][1]/npcorr[1][1]==1
                 if abs(npcorr[0][1])>=0.5 and boo:
                     print("")
                     print(corr.to_numpy())
-                    # fig = go.Figure()
-                    # fig.add_trace(px.imshow(corr))
-                    fig=px.imshow(corr)
-                    # fig.heatmap(corr, cmap=sns.diverging_palette(140, 10, as_cmap=True), vmin=-1, vmax=1)
-                    # fig.show()
-                    title='Correlation between '+pair[0]+" and "+pair[1]
+                    # locdf2=locdf.dropna(subset = [pair[0], pair[1]])
+                    locdf2=locdf[df[pair[0]].notna()]
+                    locdf2=locdf2[df[pair[1]].notna()]
+                    # print(locdf[['text']].head())
+                    # quit()
+                    dummydf=pd.DataFrame(dfs[dfind],copy=True)
+                    dummydf["dummy1"]=("country: "+locdf2['country_name'].astype(str))
+                    dummydf["dummy2"]=("<br> year" +" "+locdf2['year'].astype(str))
+                    dummydf["dummy3"]=("<br> "+str(pair[0]) +": "+locdf2[pair[0]].astype(str))
+                    dummydf["dummy4"]=("<br> "+str(pair[1]) +": "+locdf2[pair[1]].astype(str))
+                    # strcols=["country: "+locdf['country_name'].astype(str), "\n year" +locdf['year'].astype(str),
+                    #       "\n "+str(pair[0]) +locdf[pair[0]].astype(str), "\n "+str(pair[1]) +locdf[pair[1]].astype(str)]
+                    strcols=["dummy1","dummy2","dummy3","dummy4"]
+                    locdf2['text']= dummydf[strcols].apply(lambda row: ''.join(row.values.astype(str)), axis=1)
+                    # fig=px.imshow(corr)
+                    fig = go.Figure()
+                    countries=locdf2['country_name'].unique()
+                    title='Relation between '+pair[0]+" and "+pair[1]
+                    for cntry in countries:
+                        df_s = locdf2[locdf2['country_name']==cntry]
+                        fig.add_trace(
+                            go.Scatter(
+                                x=df_s[pair[0]], y=df_s[pair[1]], 
+                                mode="markers",
+                                name=cntry.capitalize(),
+                                text=df_s['country_name'],
+                                marker={
+                                    "symbol": "square",
+                                    "sizemode": "area", 
+                                    "size": df_s['Intercept'], 
+                                    "sizeref": max(df['Intercept'])*0.01
+                                },
+                                hovertext=locdf2['text'],
+                                hoverinfo="text"                               
+                                # hoverinfo="country_name+year",
+                                # hovertemplate="<b>%{text}</b><br><br>" +
+                                # "Country: %{df_s['country_name']}"+
+                                # "year: %{df_s['year']}"+
+                                # pair[0]+": %{x:.1f}<br>" + 
+                                # pair[1]+": %{y:.1f}<br>" +
+                                # #"Petal length: %{marker.size:.1f}<br>" +
+                                # "<extra></extra>"
+                            )
+                        )
+                    fig.update_layout(
+                        title=title,
+                        xaxis={"title": {"text": pair[0], "font_size": 18}}, # Note you can specify the size using font_size key
+                        yaxis={"title": {"text": pair[1], "font": {"size": 18}}}, # Or you can create a dictionnary if you want to add more font properties
+                        height=600,
+                        # plot_bgcolor="rgb(240, 250, 240)",
+                        # paper_bgcolor="rgb(240, 250, 240)"
+                        )
                     description = pair[0]+" and "+pair[1]+", correlated"
                     if dfind==0:
                         description+=" for a data set reduced to nuclear states, cleaned of NaNs"
@@ -240,7 +267,7 @@ def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
                         description+=" for the data set, cleaned from NaNs"
                     description+=" correllation is "+str(npcorr[1][1])
                     key='nuclear'
-                    lib = 'plotly_express'
+                    lib = 'plotly_go'
                     info_dict=dict(title=title, description=description, lib=lib)
                     retval.append((key,fig,info_dict))
     return retval
