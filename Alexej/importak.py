@@ -56,7 +56,7 @@ def get_data():
 
 ##### Main part for testing #####
 
-get_data() # let's grab the available data
+# get_data() # let's grab the available data
 
 """ merged_df = get_data()
 author = merged_df[0]

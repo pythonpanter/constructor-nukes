@@ -1,7 +1,5 @@
 import plotly.express as px
 
-
-
 def dummy(dataframe):
     ##### Plot
     # 'year' in the x-axis and 'nuclear_weapons_stockpile' in the y-axis.
@@ -39,6 +37,7 @@ def get_plots():
     info_dict=dict(title=title, description=description, lib=lib)
     
     # dummy(overall_stockpiles_tests_merged_df)
-    dummy(df_merged)
+    # dummy(df_merged)
+    dummy(get_data([1]))
     
     return [(key, fig, info_dict)]
