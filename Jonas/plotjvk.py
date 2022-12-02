@@ -6,7 +6,7 @@ Created on Thu Dec  1 14:26:00 2022
 @author: jvk
 """
 
-def get_data():
+def get_plots():
     quit()
 
 # import pandas as pd
