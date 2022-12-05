@@ -79,15 +79,15 @@ def dummy(dataframe):
     fig.update_layout(title_text="Nuclear Weapons Stockpile per Country per Year", title_yanchor = "top", legend_itemsizing="constant")
     
     # mark special events
-    # fig.add_vline(x=1982, line_width=3, line_dash="dash", line_color="green", annotation_text="ThisIsAtestText")
-    fig.add_vrect(x0=1947, x1=1991, line_width=3, line_dash="dash", line_color="red", annotation_text="Cold War\nUSA vs CCCP")
-    fig.add_vline(x=1949, line_width=3, line_dash="dash", line_color="green", annotation_text="1949")
-    fig.add_vline(x=1962, line_width=3, line_dash="dash", line_color="green", annotation_text="1962")
-    fig.add_vline(x=1963, line_width=3, line_dash="dash", line_color="green", annotation_text="1963")
-    fig.add_vline(x=1969, line_width=3, line_dash="dash", line_color="green", annotation_text="1969")
-    fig.add_vline(x=1979, line_width=3, line_dash="dash", line_color="green", annotation_text="1979")
-    fig.add_vline(x=1998, line_width=3, line_dash="dash", line_color="green", annotation_text="1998")
-    fig.add_vline(x=2006, line_width=3, line_dash="dash", line_color="green", annotation_text="2006")
+    # fig.add_vline(x=1982, line_width=1, line_dash="dash", line_color="green", annotation_text="ThisIsAtestText")
+    fig.add_vrect(x0=1947, x1=1991, line_width=1, line_dash="dash", line_color="red", annotation_text="Cold War\nUSA vs CCCP")
+    fig.add_vline(x=1949, line_width=1, line_dash="dash", line_color="green", annotation_text="1949")
+    fig.add_vline(x=1962, line_width=1, line_dash="dash", line_color="green", annotation_text="1962")
+    fig.add_vline(x=1963, line_width=1, line_dash="dash", line_color="green", annotation_text="1963")
+    fig.add_vline(x=1969, line_width=1, line_dash="dash", line_color="green", annotation_text="1969")
+    fig.add_vline(x=1979, line_width=1, line_dash="dash", line_color="green", annotation_text="1979")
+    fig.add_vline(x=1998, line_width=1, line_dash="dash", line_color="green", annotation_text="1998")
+    fig.add_vline(x=2006, line_width=1, line_dash="dash", line_color="green", annotation_text="2006")
 
     # return figure
     return fig
