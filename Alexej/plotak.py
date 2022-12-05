@@ -83,7 +83,7 @@ def dummy(dataframe):
     fig.add_vrect(x0=1947, x1=1991, line_width=1, line_dash="dash", line_color="red", annotation_text="Cold War USA vs USSR")
     fig.add_vline(x=1949, line_width=1, line_dash="dash", line_color="green", annotation_text="1949", annotation_position="top left")
     fig.add_vline(x=1962, line_width=1, line_dash="dash", line_color="green", annotation_text="1962", annotation_position="top left")
-    fig.add_vline(x=1963, line_width=1, line_dash="dash", line_color="green", annotation_text="1963", annotation_position="top left")
+    fig.add_vline(x=1963, line_width=1, line_dash="dash", line_color="green", annotation_text="1963", annotation_position="top right")
     fig.add_vline(x=1969, line_width=1, line_dash="dash", line_color="green", annotation_text="1969", annotation_position="top left")
     fig.add_vline(x=1979, line_width=1, line_dash="dash", line_color="green", annotation_text="1979", annotation_position="top left")
     fig.add_vline(x=1998, line_width=1, line_dash="dash", line_color="green", annotation_text="1998", annotation_position="top left")
