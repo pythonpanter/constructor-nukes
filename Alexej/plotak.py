@@ -81,13 +81,13 @@ def dummy(dataframe):
     # mark special events
     # fig.add_vline(x=1982, line_width=1, line_dash="dash", line_color="green", annotation_text="ThisIsAtestText")
     fig.add_vrect(x0=1947, x1=1991, line_width=1, line_dash="dash", line_color="red", annotation_text="Cold War USA vs CCCP")
-    fig.add_vline(x=1949, line_width=1, line_dash="dash", line_color="green", annotation_text="1949", annotation_position="top left", showarrow=True, arrowhead=1)
-    fig.add_vline(x=1962, line_width=1, line_dash="dash", line_color="green", annotation_text="1962", annotation_position="top left", showarrow=True, arrowhead=1)
-    fig.add_vline(x=1963, line_width=1, line_dash="dash", line_color="green", annotation_text="1963", annotation_position="top left", showarrow=True, arrowhead=1)
-    fig.add_vline(x=1969, line_width=1, line_dash="dash", line_color="green", annotation_text="1969", annotation_position="top left", showarrow=True, arrowhead=1)
-    fig.add_vline(x=1979, line_width=1, line_dash="dash", line_color="green", annotation_text="1979", annotation_position="top left", showarrow=True, arrowhead=1)
-    fig.add_vline(x=1998, line_width=1, line_dash="dash", line_color="green", annotation_text="1998", annotation_position="top left", showarrow=True, arrowhead=1)
-    fig.add_vline(x=2006, line_width=1, line_dash="dash", line_color="green", annotation_text="2006", annotation_position="top left", showarrow=True, arrowhead=1)
+    fig.add_vline(x=1949, line_width=1, line_dash="dash", line_color="green", annotation_text="1949", annotation_position="top left", showarrow=True, arrowhead=1, arrowcolor="white")
+    fig.add_vline(x=1962, line_width=1, line_dash="dash", line_color="green", annotation_text="1962", annotation_position="top left", showarrow=True, arrowhead=1, arrowcolor="white")
+    fig.add_vline(x=1963, line_width=1, line_dash="dash", line_color="green", annotation_text="1963", annotation_position="top left", showarrow=True, arrowhead=1, arrowcolor="white")
+    fig.add_vline(x=1969, line_width=1, line_dash="dash", line_color="green", annotation_text="1969", annotation_position="top left", showarrow=True, arrowhead=1, arrowcolor="white")
+    fig.add_vline(x=1979, line_width=1, line_dash="dash", line_color="green", annotation_text="1979", annotation_position="top left", showarrow=True, arrowhead=1, arrowcolor="white")
+    fig.add_vline(x=1998, line_width=1, line_dash="dash", line_color="green", annotation_text="1998", annotation_position="top left", showarrow=True, arrowhead=1, arrowcolor="white")
+    fig.add_vline(x=2006, line_width=1, line_dash="dash", line_color="green", annotation_text="2006", annotation_position="top left", showarrow=True, arrowhead=1, arrowcolor="white")
 
     # return figure
     return fig
