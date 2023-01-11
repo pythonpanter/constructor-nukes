@@ -20,7 +20,7 @@ df3 = pd.read_csv("data/nuclear_weapons_tests_states.csv")
 
 # Add title and header
 st.title("Number of nuclear weapons tests, 1945 to 2019")
-st.caption("This interactive chart shows the number of nuclear weapons tests conducted since 1945. We can see that the Cold War was a very active period of nuclear weapons development. Although nuclear weapons were only ever used in warfare during the Second World War, there have been many tests conducted since then.")
+st.caption("The interactive graph presents the number of nuclear weapon tests conducted since 1945. It indicates a high frequency of testing during the Cold War period. Although nuclear weapons were only used in WWII, many tests were conducted following the war. The chart allows for a full-screen view by clicking the top right corner.")
 
 # Setting up columns
 # left_column, middle_column, right_column = st.columns([3, 1, 1])
