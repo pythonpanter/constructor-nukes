@@ -84,7 +84,7 @@ fig3.add_vrect(
     x0="1947", x1="1991",
     fillcolor="LightSalmon", opacity=0.3,
     layer="below", line_width=0,
-),
+)
 
 fig3.add_annotation(
         x=1951,
@@ -116,7 +116,7 @@ fig3.add_hrect(
     y0=-5, y1=0,
     fillcolor="#010008", opacity=1,
     layer="below", line_width=0,
-),
+)
 
 fig3.add_scatter(
     x=[1946],
