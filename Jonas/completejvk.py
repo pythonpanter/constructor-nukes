@@ -190,12 +190,17 @@ def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
     for inactive in inactives:
         filtered3 = df[df['country_name'] !=inactive]
     dfs=[df,filtered3, filtered,filtered2]
-    pairs=[]
     retval=[]
-    for ind1 in range(len(cols)):
-        for ind2 in range(0,ind1):
-            if (cols[ind2] not in cols[ind1]) and (cols[ind1] not in cols[ind2]):
-                pairs.append([cols[ind2],cols[ind1]])
+    pairs=[["nuclear_weapons_status","year"]]
+    pairs.append(["nuclear_weapons_status","Gini"])
+    pairs.append(["nuclear_weapons_stockpile","nuclear_weapons_tests"])
+    pairs.append(["GDP","nuclear_weapons_stockpile"])
+    pairs.append(["GDP","nuclear_weapons_status"])
+    # pairs=[]
+    # for ind1 in range(len(cols)):
+    #     for ind2 in range(0,ind1):
+    #         if (cols[ind2] not in cols[ind1]) and (cols[ind1] not in cols[ind2]):
+    #             pairs.append([cols[ind2],cols[ind1]])
     for pair in pairs:
         for dfind in range(len(dfs)):
             locdf=pd.DataFrame(dfs[dfind],copy=True)
@@ -206,7 +211,8 @@ def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
                 boo=np.isfinite(npcorr).all() and (not np.isnan(npcorr).any())
                 boo=boo and npcorr[1][1]<1.1 and npcorr[0][1]<1.1 and npcorr[0][0]<1.1
                 boo=boo and npcorr[1][1]/npcorr[1][1]==1
-                if abs(npcorr[0][1])>=0.3 and abs(npcorr[0][1])<=0.9 and boo:
+                # if abs(npcorr[0][1])>=-1 and abs(npcorr[0][1])<=0.1 and boo:
+                if boo:
                     print(corr.to_numpy())
                     locdf2=locdf[df[pair[0]].notna()]
                     locdf2=locdf2[df[pair[1]].notna()]
@@ -224,8 +230,7 @@ def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
                         cntry=countries[cntryind]
                         markerindex= cntryind % len(MySymbs)
                         df_s = locdf2[locdf2['country_name']==cntry].sort_values(["year"])
-                        fig.add_trace(
-                            go.Scatter(
+                        fig.add_trace(go.Scatter(
                                 x=df_s[pair[0]], y=df_s[pair[1]], 
                                 mode="markers+lines",
                                 name=cntry.capitalize(),
@@ -236,30 +241,8 @@ def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
                                     "size": df_s['Intercept'], 
                                     "sizeref": max(df_s['Intercept'])*0.01
                                 },
-                                line={
-                                    "dash":'dashdot',
-                                    # "width":100,
-                                },
-                                hovertext=df_s['text'],
-                            )
-                        )
-                        # fig.add_trace(
-                        #     go.Cone(
-                        #         x=df_s[pair[0]], y=df_s[pair[1]],
-                                
-                        #         showlegend=False,
-                        #         showscale=False,                                    # mode="lines",
-                        #         # name=cntry.capitalize(),
-                        #         # text=df_s['country_name'],
-                        #         # marker={
-                        #         #     # "symbol": MySymbs[markerindex],
-                        #         #     "sizemode": "area", 
-                        #         #     "size": df_s['Intercept'], 
-                        #         #     "sizeref": max(df_s['Intercept'])*0.01
-                        #         # },
-                        #         # hovertext=df_s['text'],
-                        #     )
-                        # )
+                                line={"dash":'dashdot'},
+                                hovertext=df_s['text'],))
                     fig.update_layout(
                         title=title,
                         xaxis={"title": {"text": pair[0], "font_size": 30}}, # Note you can specify the size using font_size key
@@ -273,34 +256,34 @@ def get_plots(string=eval_frame()[0],df=eval_frame()[1],info=eval_frame()[2]):
                     elif dfind==1:
                         description+=" for a data set reduced to nuclear states, cleaned of NaNs"
                     if dfind==2:
-                        description+=" for the data set, cleaned from NaNs (1985 and later)"
+                        description+=" for the data set, cleaned from NaNs (1980 and later)"
                     elif dfind==3:
-                        description+=" for a data set reduced to nuclear states, cleaned of NaNs (1985 and later)"
-                    description+=" correllation is "+str(npcorr[1][1])
+                        description+=" for a data set reduced to nuclear states, cleaned of NaNs (1980 and later)"
+                    description+=" correllation is "+str(npcorr[0][1])
                     key='nuclear'
                     lib = 'plotly_go'
                     info_dict=dict(title=title, description=description, lib=lib)
                     retval.append((key,fig,info_dict))
     # list of not-boring plots:
         
-    showplots=[25, 27, 13, 5, ]
+    showplots=[1, 5, 9, 13, 17]
     showplots=[show -1 for show in showplots]
     # reordered=list(showplots)
     retval2=[retval[i] for i in showplots]
     for i in range(len(retval)):
         if i not in showplots:
             retval2.append(retval[i]) 
-    return retval2#[:6]
+    return retval2[:6]
     # return retval[:6]
 
-# myplots=get_plots()
+myplots=get_plots()
 
 
-# # for plot in myplots[:6]:
-# for plot in myplots:
-#     print(plot[2]["description"])
-#     plot[1].show()
-# print(len(get_plots()))
+# for plot in myplots[:6]:
+for plot in myplots:
+    print(plot[2]["description"])
+    plot[1].show()
+print(len(get_plots()))
 
 # def get_plots():
 #     quit()
