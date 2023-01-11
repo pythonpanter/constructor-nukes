@@ -20,7 +20,7 @@ df3 = pd.read_csv("data/nuclear_weapons_tests_states.csv")
 
 # Add title and header
 st.title("Number of nuclear weapons tests, 1945 to 2019")
-st.subheader("This interactive chart shows the number of nuclear weapons tests conducted since 1945. We can see that the Cold War was a very active period of nuclear weapons development. Although nuclear weapons were only ever used in warfare during the Second World War, there have been many tests conducted since then.")
+st.caption("This interactive chart shows the number of nuclear weapons tests conducted since 1945. We can see that the Cold War was a very active period of nuclear weapons development. Although nuclear weapons were only ever used in warfare during the Second World War, there have been many tests conducted since then.")
 
 # Setting up columns
 # left_column, middle_column, right_column = st.columns([3, 1, 1])
@@ -230,6 +230,6 @@ fig3.add_scatter(
         line_width=1,
 ))
 
-st.plotly_chart(fig)
+st.plotly_chart(fig3)
 
 # Widgets: checkbox (you can replace st.xx with st.sidebar.xx)
