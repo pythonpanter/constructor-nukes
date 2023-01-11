@@ -1,25 +1,4 @@
-import pandas as pd
-import plotly.express as px
-import json
-import plotly.graph_objects as go
 
-#dirs=['Jonas','Alexej']
-#for d in dirs:
-#    sys.path.insert(0, f'{dots}/{d}')
-#import importjvk as ijvk
-#data= ijvk.get_data()
-#df=data[1]
-#print(data[1].head())
-#
-#import sys
-#if sys.platform=='win32':
-#    dots='..'
-#    kaipath=''
-#else:
-#    dots='.'
-#    kaipath='./KaiH/'
-#for d in dirs:
-#    sys.path.insert(0, f'{dots}/{d}')
 
 df3 = pd.read_csv("data/nuclear_weapons_tests_states.csv")
 
