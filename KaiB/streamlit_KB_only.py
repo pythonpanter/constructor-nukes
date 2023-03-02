@@ -16,7 +16,18 @@ def load_data(path):
 # df_raw = load_data(path="data/share-of-individuals-using-the-internet.csv")
 # df_int = deepcopy(df_raw)
 
-df3 = pd.read_csv("data/nuclear_weapons_tests_states.csv")
+#df3 = pd.read_csv("data/nuclear_weapons_tests_states.csv")
+
+import os
+
+# Get the directory of the current script
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+# Construct the file path using os.path.join()
+file_path = os.path.join(dir_path, "data", "nuclear_weapons_tests_states.csv")
+
+# Load the data using pd.read_csv()
+df3 = pd.read_csv(file_path)
 
 # Add title and header
 st.title("Number of nuclear weapons tests, 1945 to 2019")
