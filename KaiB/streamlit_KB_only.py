@@ -243,4 +243,10 @@ fig3.add_scatter(
 
 st.plotly_chart(fig3)
 
+st.markdown("""Sources and inspiration:
+* Kaggle
+* Own research
+* Max Roser, Bastian Herre and Joe Hasell (2013) - "Nuclear Weapons". Published online at OurWorldInData.org. Retrieved from: 'https://ourworldindata.org/nuclear-weapons' [Online Resource]
+""")
+
 # Widgets: checkbox (you can replace st.xx with st.sidebar.xx)
